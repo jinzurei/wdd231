@@ -1,0 +1,24 @@
+@media (min-width: 700px) {
+  .menu-button {
+    display: none;
+  }
+
+  .nav-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .intro-grid {
+    grid-template-columns: 2fr 1fr;
+    align-items: start;
+  }
+
+  .course-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .student-photo {
+    width: min(100%, 150px);
+  }
+}

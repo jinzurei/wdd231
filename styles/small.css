@@ -1,0 +1,273 @@
+:root {
+  --primary: #e35336;
+  --secondary: #ffd3ac;
+  --dark: #8a2b0e;
+  --bg: #fff8f0;
+  --surface: #fffaf5;
+  --soft: #f7e6d7;
+  --text: #33241d;
+  --line: #ddc0ac;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Gelasio", Georgia, serif;
+  line-height: 1.45;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  width: min(1200px, calc(100% - 20px));
+  margin: 0 auto;
+}
+
+.site-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0;
+}
+
+.site-brand p,
+.footer-content p,
+.panel-body,
+.filter-row button,
+.course-card {
+  margin: 0;
+}
+
+.site-brand p {
+  font-size: 0.98rem;
+}
+
+.menu-button {
+  margin-left: auto;
+  border: 1px solid #bc9f8f;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  border-radius: 0.25rem;
+  padding: 0.1rem 0.45rem;
+  cursor: pointer;
+}
+
+.logo-mark {
+  width: 22px;
+  height: 22px;
+  border: 1px solid #8f5e50;
+  background:
+    linear-gradient(45deg, transparent 47%, #8f5e50 47%, #8f5e50 53%, transparent 53%),
+    linear-gradient(-45deg, transparent 47%, #8f5e50 47%, #8f5e50 53%, transparent 53%),
+    var(--secondary);
+}
+
+.site-nav {
+  background: var(--dark);
+}
+
+.nav-list {
+  margin: 0;
+  padding: 0.22rem 0;
+  list-style: none;
+  display: none;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.nav-list.is-open {
+  display: flex;
+}
+
+.nav-list a {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  text-decoration: none;
+  color: #fff;
+  font-size: 0.82rem;
+  border: 1px solid transparent;
+}
+
+.nav-list a:hover,
+.nav-list a:focus-visible,
+.nav-list a.is-active {
+  border-color: var(--secondary);
+}
+
+.main-content {
+  padding: 0.45rem 0 0.85rem;
+}
+
+h1 {
+  margin: 0 0 0.45rem;
+  font-size: 1.8rem;
+}
+
+.intro-grid {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.panel {
+  margin-bottom: 0.7rem;
+}
+
+.panel h2 {
+  margin: 0 0 0.18rem;
+  padding: 0.18rem 0.5rem;
+  background: var(--dark);
+  color: #fff;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.panel-body {
+  min-height: 145px;
+  background: var(--surface);
+  padding: 0.55rem;
+  border: 1px solid var(--line);
+  font-size: 0.82rem;
+}
+
+.student-photo {
+  display: block;
+  width: min(100%, 180px);
+  margin: 0 auto;
+  border: 1px solid var(--line);
+  border-radius: 0.25rem;
+}
+
+.filter-row,
+.course-row {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.filter-row {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-bottom: 0.75rem;
+}
+
+.filter-row button {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.5rem 0.5rem;
+  border-radius: 0.35rem;
+  border: 1px solid #bc9f8f;
+  background: #fff4e8;
+  color: var(--text);
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+}
+
+.filter-row button.is-active {
+  background: var(--dark);
+  color: #fff;
+  border-color: var(--dark);
+}
+
+.course-row {
+  grid-template-columns: 1fr;
+}
+
+.course-card {
+  width: 100%;
+  padding: 0.55rem 0.65rem;
+  border-radius: 0.35rem;
+  border: 1px solid #bc9f8f;
+  background: var(--secondary);
+  color: var(--text);
+  text-align: center;
+  display: grid;
+  gap: 0.15rem;
+}
+
+.course-code {
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.course-status {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.course-card.completed {
+  background: #f3d1b9;
+  border-color: var(--primary);
+  color: #5a2415;
+}
+
+.course-card.not-completed {
+  background: #fff2e3;
+}
+
+.credit-line {
+  margin-top: 0.75rem;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.social-band {
+  padding: 0.15rem 0 0.2rem;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 0.45rem;
+}
+
+.social-links a {
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #fff;
+  background: var(--dark);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  font-weight: 700;
+  border-radius: 0.25rem;
+}
+
+.social-links svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+
+.site-footer {
+  background: #ead6c7;
+  color: var(--text);
+  text-align: center;
+}
+
+.footer-content {
+  padding: 0 0 0.55rem;
+}
+
+.footer-content p {
+  margin: 0.1rem 0;
+  font-size: 0.72rem;
+}
+
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
