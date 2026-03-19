@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 180" role="img" aria-label="Skyline Fitness Collective logo">
+  <rect width="300" height="180" fill="#fff4f0"/>
+  <!-- Running figure (simplified) -->
+  <circle cx="80" cy="52" r="14" fill="#b83018"/>
+  <line x1="80" y1="66" x2="80" y2="110" stroke="#b83018" stroke-width="5" stroke-linecap="round"/>
+  <line x1="80" y1="80" x2="55" y2="96" stroke="#b83018" stroke-width="4" stroke-linecap="round"/>
+  <line x1="80" y1="80" x2="102" y2="72" stroke="#b83018" stroke-width="4" stroke-linecap="round"/>
+  <line x1="80" y1="110" x2="58" y2="130" stroke="#b83018" stroke-width="4" stroke-linecap="round"/>
+  <line x1="80" y1="110" x2="104" y2="128" stroke="#b83018" stroke-width="4" stroke-linecap="round"/>
+  <!-- Name -->
+  <text x="135" y="92" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="#6b1e07">Skyline Fitness</text>
+  <text x="135" y="114" font-family="Arial,sans-serif" font-size="15" fill="#6b1e07">Collective</text>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 180" role="img" aria-label="Red Butte Design Studio logo">
+  <rect width="300" height="180" fill="#fff0e8"/>
+  <!-- Abstract butte shape -->
+  <polygon points="30,130 90,55 150,130" fill="#b83018"/>
+  <polygon points="90,130 140,75 190,130" fill="#9988a1" opacity="0.85"/>
+  <!-- Name -->
+  <text x="155" y="108" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="#6b1e07">Red Butte</text>
+  <text x="155" y="128" font-family="Arial,sans-serif" font-size="15" fill="#4a3028">Design Studio</text>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 180" role="img" aria-label="Wasatch Peak Roasters logo">
+  <rect width="300" height="180" fill="#fff3e8"/>
+  <!-- Coffee cup -->
+  <rect x="30" y="70" width="80" height="60" rx="8" fill="#6b1e07"/>
+  <rect x="110" y="85" width="18" height="28" rx="4" fill="#6b1e07"/>
+  <!-- Steam lines -->
+  <path d="M55 60 Q58 50 55 42" stroke="#b83018" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M70 60 Q73 48 70 38" stroke="#b83018" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M85 60 Q88 50 85 42" stroke="#b83018" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <!-- Name -->
+  <text x="148" y="100" font-family="Georgia,serif" font-size="18" font-weight="bold" fill="#6b1e07">Wasatch Peak</text>
+  <text x="148" y="122" font-family="Georgia,serif" font-size="16" fill="#4a3028">Roasters</text>
+</svg>

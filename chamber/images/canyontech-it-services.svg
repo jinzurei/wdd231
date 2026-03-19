@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 180" role="img" aria-label="CanyonTech IT Services logo">
+  <rect width="300" height="180" fill="#eaf3fb"/>
+  <!-- Monitor icon -->
+  <rect x="30" y="45" width="110" height="80" rx="8" fill="#00568a"/>
+  <rect x="42" y="57" width="86" height="56" fill="#b9ddef"/>
+  <rect x="68" y="128" width="34" height="12" fill="#00568a"/>
+  <rect x="58" y="140" width="54" height="6" rx="3" fill="#00568a"/>
+  <!-- Circuit lines on screen -->
+  <line x1="55" y1="78" x2="115" y2="78" stroke="#00568a" stroke-width="2"/>
+  <line x1="85" y1="65" x2="85" y2="105" stroke="#00568a" stroke-width="2"/>
+  <!-- Name -->
+  <text x="160" y="95" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="#004a7a">CanyonTech IT</text>
+  <text x="160" y="116" font-family="Arial,sans-serif" font-size="15" fill="#1a3a50">Services</text>
+</svg>

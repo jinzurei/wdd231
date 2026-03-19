@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 180" role="img" aria-label="Temple Square Event Co. logo">
+  <rect width="300" height="180" fill="#f5f0fa"/>
+  <!-- Simplified spire / event banner -->
+  <polygon points="75,40 90,110 60,110" fill="#7a6b84"/>
+  <!-- Bunting decorations -->
+  <line x1="30" y1="65" x2="140" y2="65" stroke="#b83018" stroke-width="2.5"/>
+  <polygon points="30,65 40,80 50,65" fill="#ffd3ac"/>
+  <polygon points="55,65 65,80 75,65" fill="#b83018"/>
+  <polygon points="80,65 90,80 100,65" fill="#ffd3ac"/>
+  <polygon points="105,65 115,80 125,65" fill="#b83018"/>
+  <!-- Name -->
+  <text x="155" y="98" font-family="Georgia,serif" font-size="16" font-weight="bold" fill="#584665">Temple Square</text>
+  <text x="155" y="118" font-family="Georgia,serif" font-size="14" fill="#4a3028">Event Co.</text>
+</svg>

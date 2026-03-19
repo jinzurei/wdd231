@@ -1,0 +1,74 @@
+{
+  "members": [
+    {
+      "name": "Wasatch Peak Roasters",
+      "address": "101 N Temple, Salt Lake City, UT 84150",
+      "phone": "(801) 555-0134",
+      "website": "https://wasatchpeakroasters.com",
+      "websiteLabel": "wasatchpeakroasters.com",
+      "image": "wasatch-peak-roasters.svg",
+      "membershipLevel": 3,
+      "description": "Small-batch specialty coffee roastery and neighborhood tasting room."
+    },
+    {
+      "name": "Red Butte Design Studio",
+      "address": "245 E 400 S, Salt Lake City, UT 84111",
+      "phone": "(801) 555-0108",
+      "website": "https://redbuttedesignstudio.com",
+      "websiteLabel": "redbuttedesignstudio.com",
+      "image": "red-butte-design-studio.svg",
+      "membershipLevel": 2,
+      "description": "Brand strategy and visual design services for Utah businesses."
+    },
+    {
+      "name": "Granite Legal Group",
+      "address": "533 W 200 S, Salt Lake City, UT 84101",
+      "phone": "(801) 555-0116",
+      "website": "https://granitelegalgroup.com",
+      "websiteLabel": "granitelegalgroup.com",
+      "image": "granite-legal-group.svg",
+      "membershipLevel": 3,
+      "description": "Business law, contracts, and startup counsel for local entrepreneurs."
+    },
+    {
+      "name": "CanyonTech IT Services",
+      "address": "609 S Main St, Salt Lake City, UT 84101",
+      "phone": "(801) 555-0199",
+      "website": "https://canyontechit.com",
+      "websiteLabel": "canyontechit.com",
+      "image": "canyontech-it-services.svg",
+      "membershipLevel": 1,
+      "description": "Managed IT support, cloud migrations, and cybersecurity consulting."
+    },
+    {
+      "name": "Liberty Avenue Market",
+      "address": "877 E 900 S, Salt Lake City, UT 84105",
+      "phone": "(801) 555-0162",
+      "website": "https://libertyavenuemarket.com",
+      "websiteLabel": "libertyavenuemarket.com",
+      "image": "liberty-avenue-market.svg",
+      "membershipLevel": 2,
+      "description": "Family-owned urban grocery focused on local and regional producers."
+    },
+    {
+      "name": "Skyline Fitness Collective",
+      "address": "312 W 700 S, Salt Lake City, UT 84101",
+      "phone": "(801) 555-0173",
+      "website": "https://skylinefitnesscollective.com",
+      "websiteLabel": "skylinefitnesscollective.com",
+      "image": "skyline-fitness-collective.svg",
+      "membershipLevel": 1,
+      "description": "Group fitness classes, personal training, and workplace wellness programs."
+    },
+    {
+      "name": "Temple Square Event Co.",
+      "address": "150 S West Temple, Salt Lake City, UT 84101",
+      "phone": "(801) 555-0180",
+      "website": "https://templesquareeventco.com",
+      "websiteLabel": "templesquareeventco.com",
+      "image": "temple-square-event-co.svg",
+      "membershipLevel": 3,
+      "description": "Full-service corporate and community event planning across the Wasatch Front."
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Salt Lake Chamber">
+  <rect width="64" height="64" rx="10" fill="#6b1e07"/>
+  <!-- Mountain silhouette -->
+  <polygon points="32,12 56,52 8,52" fill="#ffd3ac" opacity="0.9"/>
+  <!-- Peak cap -->
+  <polygon points="32,12 39,26 25,26" fill="#ffffff"/>
+</svg>

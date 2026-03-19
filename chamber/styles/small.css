@@ -1,0 +1,334 @@
+:root {
+  --clr-primary:   #b83018;
+  --clr-accent:    #e35336;
+  --clr-peach:     #ffd3ac;
+  --clr-brown:     #6b1e07;
+  --clr-lavender:  #7a6b84;
+
+  --clr-bg:        #fff8f0;
+  --clr-surface:   #ffffff;
+  --clr-text:      #1a0e09;
+  --clr-text-muted:#4a3028;
+  --clr-on-dark:   #ffffff;
+  --clr-link:      #8b1a00;
+
+  --gap: 1rem;
+
+  --radius: 0.5rem;
+  --border: 1px solid #c8a88e;
+}
+
+body {
+  min-width: 320px;
+  background-color: var(--clr-bg);
+  color: var(--clr-text);
+  font-family: "Lato", "Helvetica Neue", Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--clr-link);
+  text-decoration: underline;
+}
+
+a:hover,
+a:focus-visible {
+  text-decoration: none;
+  outline: 2px solid var(--clr-primary);
+  outline-offset: 2px;
+}
+
+.container {
+  width: min(1120px, calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+.site-header {
+  background-color: var(--clr-brown);
+  color: var(--clr-on-dark);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap);
+  padding-block: 0.75rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--clr-on-dark);
+}
+
+.brand:hover,
+.brand:focus-visible {
+  outline: 2px solid var(--clr-peach);
+  outline-offset: 3px;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.brand-name {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.brand-tagline {
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  opacity: 0.9;
+}
+
+.menu-btn {
+  background: transparent;
+  border: 2px solid var(--clr-on-dark);
+  border-radius: 0.3rem;
+  color: var(--clr-on-dark);
+  font-size: 1.25rem;
+  line-height: 1;
+  padding: 0.3rem 0.55rem;
+}
+
+.menu-btn:focus-visible {
+  outline: 2px solid var(--clr-peach);
+  outline-offset: 2px;
+}
+
+.site-nav {
+  background-color: var(--clr-primary);
+}
+
+.nav-list {
+  display: none;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding-block: 0.4rem;
+}
+
+.nav-list.open {
+  display: flex;
+}
+
+.nav-list a {
+  display: block;
+  padding: 0.55rem 0.75rem;
+  color: var(--clr-on-dark);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-left: 4px solid transparent;
+  transition: border-color 0.15s, background-color 0.15s;
+}
+
+.nav-list a:hover,
+.nav-list a:focus-visible {
+  background-color: rgba(255, 255, 255, 0.12);
+  border-left-color: var(--clr-peach);
+  outline: none;
+}
+
+.nav-list a.active {
+  border-left-color: var(--clr-peach);
+  background-color: rgba(0, 0, 0, 0.18);
+}
+
+.main-content {
+  padding-block: 1.25rem 2rem;
+}
+
+.main-content h1 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.9rem;
+  color: var(--clr-brown);
+  margin-bottom: 0.25rem;
+}
+
+.intro {
+  color: var(--clr-text-muted);
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.view-controls {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.view-btn {
+  border: 2px solid var(--clr-primary);
+  border-radius: var(--radius);
+  background-color: var(--clr-surface);
+  color: var(--clr-primary);
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 0.45rem 0.9rem;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.view-btn:hover {
+  background-color: var(--clr-peach);
+}
+
+.view-btn.active {
+  background-color: var(--clr-primary);
+  color: var(--clr-on-dark);
+}
+
+.view-btn:focus-visible {
+  outline: 2px solid var(--clr-brown);
+  outline-offset: 2px;
+}
+
+.member-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gap);
+}
+
+.member-card {
+  background-color: var(--clr-surface);
+  border: var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-img-wrap {
+  background-color: #fff3e8;
+  padding: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 130px;
+  border-bottom: var(--border);
+}
+
+.card-img-wrap img {
+  max-height: 100px;
+  width: 100%;
+  object-fit: contain;
+}
+
+.card-body {
+  padding: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  flex: 1;
+}
+
+.card-name {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.05rem;
+  color: var(--clr-brown);
+}
+
+.card-badge {
+  display: inline-block;
+  width: fit-content;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background-color: var(--clr-peach);
+  color: #4a1a08;
+}
+
+.card-badge.badge-gold {
+  background-color: #c8900a;
+  color: #fff;
+}
+
+.card-badge.badge-silver {
+  background-color: #5f5f72;
+  color: #fff;
+}
+
+.card-detail {
+  font-size: 0.88rem;
+  color: var(--clr-text);
+}
+
+.card-detail a {
+  color: var(--clr-link);
+  word-break: break-word;
+}
+
+.member-grid.list-view {
+  grid-template-columns: 1fr;
+  gap: 0;
+  border: var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.member-grid.list-view .member-card {
+  flex-direction: row;
+  align-items: center;
+  border-radius: 0;
+  border: none;
+  border-bottom: var(--border);
+}
+
+.member-grid.list-view .member-card:last-child {
+  border-bottom: none;
+}
+
+.member-grid.list-view .card-img-wrap {
+  display: none;
+}
+
+.member-grid.list-view .card-body {
+  padding: 0.65rem 0.9rem;
+}
+
+.site-footer {
+  background-color: var(--clr-brown);
+  color: var(--clr-on-dark);
+  padding-block: 1.25rem;
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+.footer-inner h2 {
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+  color: var(--clr-peach);
+}
+
+.footer-inner p,
+.footer-inner address {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  font-style: normal;
+}
+
+.footer-inner a {
+  color: var(--clr-peach);
+}
+
+.footer-inner a:hover,
+.footer-inner a:focus-visible {
+  text-decoration: none;
+  outline: 2px solid var(--clr-peach);
+  outline-offset: 2px;
+}
