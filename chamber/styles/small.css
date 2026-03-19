@@ -107,6 +107,7 @@ a:focus-visible {
 
 .site-nav {
   background-color: var(--clr-primary);
+  color: var(--clr-on-dark);
 }
 
 .nav-list {
