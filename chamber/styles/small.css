@@ -1,19 +1,22 @@
 :root {
-  --clr-primary:   #b83018;
-  --clr-accent:    #e35336;
-  --clr-peach:     #ffd3ac;
-  --clr-brown:     #6b1e07;
-  --clr-lavender:  #7a6b84;
+  --clr-primary:     #b83018;
+  --clr-accent:      #e35336;
+  --clr-peach:       #ffd3ac;
+  --clr-brown:       #6b1e07;
 
-  --clr-bg:        #fff8f0;
-  --clr-surface:   #ffffff;
-  --clr-text:      #1a0e09;
-  --clr-text-muted:#4a3028;
-  --clr-on-dark:   #ffffff;
-  --clr-link:      #8b1a00;
+  --clr-bg:          #fff8f0;
+  --clr-surface:     #ffffff;
+  --clr-text:        #1a0e09;
+  --clr-text-muted:  #4a3028;
+  --clr-on-dark:     #ffffff;
+  --clr-link:        #8b1a00;
 
-  --gap: 1rem;
+  --clr-card-img-bg: #fff3e8;
+  --clr-badge-text:  #4a1a08;
+  --clr-badge-gold:  #c8900a;
+  --clr-badge-silver:#5f5f72;
 
+  --gap:    1rem;
   --radius: 0.5rem;
   --border: 1px solid #c8a88e;
 }
@@ -44,6 +47,7 @@ a:focus-visible {
   margin-inline: auto;
 }
 
+/* ── Header ─────────────────────────────────────────── */
 .site-header {
   background-color: var(--clr-brown);
   color: var(--clr-on-dark);
@@ -105,6 +109,7 @@ a:focus-visible {
   outline-offset: 2px;
 }
 
+/* ── Navigation ─────────────────────────────────────── */
 .site-nav {
   background-color: var(--clr-primary);
   color: var(--clr-on-dark);
@@ -144,6 +149,7 @@ a:focus-visible {
   background-color: rgba(0, 0, 0, 0.18);
 }
 
+/* ── Main content ───────────────────────────────────── */
 .main-content {
   padding-block: 1.25rem 2rem;
 }
@@ -161,6 +167,7 @@ a:focus-visible {
   font-size: 0.95rem;
 }
 
+/* ── Directory view controls ────────────────────────── */
 .view-controls {
   display: flex;
   gap: 0.5rem;
@@ -192,13 +199,9 @@ a:focus-visible {
   outline-offset: 2px;
 }
 
-.member-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--gap);
-}
-
-.member-card {
+/* ── Member / Spotlight shared card shell ───────────── */
+.member-card,
+.spotlight-card {
   background-color: var(--clr-surface);
   border: var(--border);
   border-radius: var(--radius);
@@ -207,23 +210,32 @@ a:focus-visible {
   flex-direction: column;
 }
 
-.card-img-wrap {
-  background-color: #fff3e8;
+/* ── Card image wrap (member + spotlight) ───────────── */
+.card-img-wrap,
+.spotlight-img-wrap {
+  background-color: var(--clr-card-img-bg);
   padding: 0.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 130px;
   border-bottom: var(--border);
 }
 
-.card-img-wrap img {
-  max-height: 100px;
+.card-img-wrap { min-height: 130px; }
+.spotlight-img-wrap { min-height: 110px; }
+
+.card-img-wrap img,
+.spotlight-img-wrap img {
   width: 100%;
   object-fit: contain;
 }
 
-.card-body {
+.card-img-wrap img    { max-height: 100px; }
+.spotlight-img-wrap img { max-height: 80px; }
+
+/* ── Card body (member + spotlight) ────────────────── */
+.card-body,
+.spotlight-body {
   padding: 0.85rem;
   display: flex;
   flex-direction: column;
@@ -231,12 +243,17 @@ a:focus-visible {
   flex: 1;
 }
 
-.card-name {
+/* ── Card name (member + spotlight) ────────────────── */
+.card-name,
+.spotlight-name {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: 1.05rem;
   color: var(--clr-brown);
 }
 
+.card-name     { font-size: 1.05rem; }
+.spotlight-name { font-size: 1rem; margin-bottom: 0.1rem; }
+
+/* ── Membership badge ───────────────────────────────── */
 .card-badge {
   display: inline-block;
   width: fit-content;
@@ -247,31 +264,34 @@ a:focus-visible {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   background-color: var(--clr-peach);
-  color: #4a1a08;
+  color: var(--clr-badge-text);
 }
 
-.card-badge.badge-gold {
-  background-color: #c8900a;
-  color: #fff;
-}
+.card-badge.badge-gold   { background-color: var(--clr-badge-gold);   color: var(--clr-on-dark); }
+.card-badge.badge-silver { background-color: var(--clr-badge-silver); color: var(--clr-on-dark); }
 
-.card-badge.badge-silver {
-  background-color: #5f5f72;
-  color: #fff;
-}
-
-.card-detail {
-  font-size: 0.88rem;
+/* ── Card detail text (member + spotlight) ──────────── */
+.card-detail,
+.spotlight-detail {
   color: var(--clr-text);
 }
+
+.card-detail    { font-size: 0.88rem; }
+.spotlight-detail { font-size: 0.85rem; }
 
 .card-detail a {
   color: var(--clr-link);
   word-break: break-word;
 }
 
-.member-grid.list-view {
+/* ── Member grid ─────────────────────────────────────── */
+.member-grid {
+  display: grid;
   grid-template-columns: 1fr;
+  gap: var(--gap);
+}
+
+.member-grid.list-view {
   gap: 0;
   border: var(--border);
   border-radius: var(--radius);
@@ -298,13 +318,11 @@ a:focus-visible {
   padding: 0.65rem 0.9rem;
 }
 
-/* ═══════════════════════════════════════════════════
-   HOME PAGE — Hero
-═══════════════════════════════════════════════════ */
+/* ── Hero ────────────────────────────────────────────── */
 .hero {
   position: relative;
   overflow: hidden;
-  background-color: #1a0e09;
+  background-color: var(--clr-text);
   max-height: 420px;
 }
 
@@ -335,30 +353,30 @@ a:focus-visible {
 .hero-title {
   font-family: "Playfair Display", Georgia, serif;
   font-size: 1.6rem;
-  color: #fff;
+  color: var(--clr-on-dark);
   line-height: 1.2;
   margin-bottom: 0.4rem;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
 }
 
 .hero-sub {
   font-size: 0.95rem;
-  color: #ffd3ac;
+  color: var(--clr-peach);
   margin-bottom: 1.1rem;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .cta-btn {
   display: inline-block;
-  background-color: var(--clr-accent);
-  color: #fff;
+  background-color: var(--clr-primary);
+  color: var(--clr-on-dark);
   font-weight: 700;
   font-size: 0.95rem;
   padding: 0.65rem 1.5rem;
   border-radius: var(--radius);
   text-decoration: none;
   transition: background-color 0.15s, transform 0.1s;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
 }
 
 .cta-btn:hover,
@@ -370,9 +388,7 @@ a:focus-visible {
   transform: translateY(-1px);
 }
 
-/* ═══════════════════════════════════════════════════
-   HOME PAGE — Section headings
-═══════════════════════════════════════════════════ */
+/* ── Home sections ───────────────────────────────────── */
 .home-section {
   padding-block: 1.5rem;
   border-bottom: var(--border);
@@ -389,9 +405,7 @@ a:focus-visible {
   margin-bottom: 1rem;
 }
 
-/* ═══════════════════════════════════════════════════
-   HOME PAGE — Events
-═══════════════════════════════════════════════════ */
+/* ── Events ──────────────────────────────────────────── */
 .events-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -411,7 +425,7 @@ a:focus-visible {
 
 .event-date-box {
   background-color: var(--clr-primary);
-  color: #fff;
+  color: var(--clr-on-dark);
   border-radius: var(--radius);
   text-align: center;
   padding: 0.4rem 0.6rem;
@@ -444,9 +458,7 @@ a:focus-visible {
   color: var(--clr-text-muted);
 }
 
-/* ═══════════════════════════════════════════════════
-   HOME PAGE — Weather
-═══════════════════════════════════════════════════ */
+/* ── Weather ─────────────────────────────────────────── */
 .weather-widget {
   background-color: var(--clr-surface);
   border: var(--border);
@@ -469,9 +481,7 @@ a:focus-visible {
   margin-bottom: 1rem;
 }
 
-.weather-icon {
-  flex-shrink: 0;
-}
+.weather-icon { flex-shrink: 0; }
 
 .weather-temp {
   font-family: "Playfair Display", Georgia, serif;
@@ -483,14 +493,16 @@ a:focus-visible {
 
 .weather-desc {
   font-size: 0.92rem;
-  color: var(--clr-text);
   margin-bottom: 0.15rem;
 }
 
-.weather-meta {
+.weather-meta,
+.weather-error {
   font-size: 0.8rem;
   color: var(--clr-text-muted);
 }
+
+.weather-error { padding: 0.5rem; }
 
 .weather-forecast-wrap {
   border-top: var(--border);
@@ -537,64 +549,11 @@ a:focus-visible {
   color: var(--clr-text-muted);
 }
 
-.weather-error {
-  font-size: 0.88rem;
-  color: var(--clr-text-muted);
-  padding: 0.5rem;
-}
-
-/* ═══════════════════════════════════════════════════
-   HOME PAGE — Spotlights
-═══════════════════════════════════════════════════ */
+/* ── Spotlights ──────────────────────────────────────── */
 .spotlights-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--gap);
-}
-
-.spotlight-card {
-  background-color: var(--clr-surface);
-  border: var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-
-.spotlight-img-wrap {
-  background-color: #fff3e8;
-  padding: 0.75rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 110px;
-  border-bottom: var(--border);
-}
-
-.spotlight-img-wrap img {
-  max-height: 80px;
-  width: 100%;
-  object-fit: contain;
-}
-
-.spotlight-body {
-  padding: 0.85rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-  flex: 1;
-}
-
-.spotlight-name {
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: 1rem;
-  color: var(--clr-brown);
-  margin-bottom: 0.1rem;
-}
-
-.spotlight-detail {
-  font-size: 0.85rem;
-  color: var(--clr-text);
 }
 
 .spotlight-link {
@@ -605,15 +564,14 @@ a:focus-visible {
   padding-top: 0.3rem;
 }
 
-/* ═══════════════════════════════════════════════════
-   HOME PAGE — Main grid (mobile: stacked)
-═══════════════════════════════════════════════════ */
+/* ── Home main grid (mobile: stacked) ───────────────── */
 .home-main-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 0;
 }
 
+/* ── Footer ──────────────────────────────────────────── */
 .site-footer {
   background-color: var(--clr-brown);
   color: var(--clr-on-dark);
@@ -639,9 +597,7 @@ a:focus-visible {
   font-style: normal;
 }
 
-.footer-inner a {
-  color: var(--clr-peach);
-}
+.footer-inner a { color: var(--clr-peach); }
 
 .footer-inner a:hover,
 .footer-inner a:focus-visible {
