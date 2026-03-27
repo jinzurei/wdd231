@@ -67,7 +67,6 @@ async function loadMembers() {
     if (container) {
       container.innerHTML = `<p class="card-detail">Unable to load member data. Please try again later.</p>`;
     }
-    console.error("loadMembers:", err);
   }
 }
 

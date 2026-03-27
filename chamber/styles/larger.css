@@ -48,3 +48,54 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ─── Home page — larger layout ───────────────────── */
+@media (min-width: 640px) {
+  .hero-img {
+    height: 400px;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .hero-sub {
+    font-size: 1.05rem;
+  }
+
+  .events-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .spotlights-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 860px) {
+  .hero-img {
+    height: 420px;
+  }
+
+  /* Side-by-side: events left, weather right */
+  .home-main-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--gap);
+    align-items: start;
+  }
+
+  /* Events and weather sit side by side */
+  .home-section-events,
+  .home-section-weather {
+    border-bottom: none;
+  }
+
+  /* Spotlights spans full width below */
+  .home-section-spotlights {
+    grid-column: 1 / -1;
+  }
+
+  .spotlights-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

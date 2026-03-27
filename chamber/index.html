@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Salt Lake Chamber | Home</title>
+  <meta name="description" content="The Salt Lake Chamber connects local businesses, fosters growth, and strengthens the Salt Lake City community.">
+  <meta name="author" content="Tanner L">
+
+  <meta property="og:title" content="Salt Lake Chamber | Home">
+  <meta property="og:description" content="The Salt Lake Chamber connects local businesses, fosters growth, and strengthens the Salt Lake City community.">
+  <meta property="og:image" content="https://jinzurei.github.io/wdd231/chamber/images/chamber-og.svg">
+  <meta property="og:url" content="https://jinzurei.github.io/wdd231/chamber/index.html">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="styles/small.css">
+  <link rel="stylesheet" href="styles/larger.css">
+
+  <script src="scripts/navigation.js" defer></script>
+  <script src="scripts/date.js" defer></script>
+  <script src="scripts/home.js" defer></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Salt Lake Chamber home">
+        <img src="images/favicon.svg" alt="" width="44" height="44" aria-hidden="true">
+        <div class="brand-text">
+          <span class="brand-name">Salt Lake Chamber</span>
+          <span class="brand-tagline">Connect - Grow - Belong</span>
+        </div>
+      </a>
+      <button
+        id="menuButton"
+        class="menu-btn"
+        type="button"
+        aria-controls="primaryNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation menu"
+      >&#9776;</button>
+    </div>
+  </header>
+
+  <nav class="site-nav" aria-label="Primary navigation">
+    <ul id="primaryNav" class="container nav-list">
+      <li><a href="index.html" class="active" aria-current="page">Home</a></li>
+      <li><a href="directory.html">Directory</a></li>
+      <li><a href="join.html">Join</a></li>
+      <li><a href="discover.html">Discover</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── Hero ────────────────────────────────────────────── -->
+  <section class="hero" aria-label="Welcome banner">
+    <img
+      class="hero-img"
+      src="images/hero.svg"
+      alt="Salt Lake City skyline at sunset with the Wasatch Mountains"
+      width="1200"
+      height="420"
+    >
+    <div class="hero-overlay">
+      <h1 class="hero-title">Salt Lake Chamber</h1>
+      <p class="hero-sub">Where Salt Lake Business Thrives &mdash; connecting entrepreneurs, professionals, and communities across the Wasatch Front.</p>
+      <a class="cta-btn" href="join.html">Join the Chamber Today</a>
+    </div>
+  </section>
+
+  <!-- ── Main content ────────────────────────────────────── -->
+  <main class="container main-content">
+
+    <div class="home-main-grid">
+
+      <!-- Events -->
+      <section class="home-section home-section-events" aria-labelledby="eventsHeading">
+        <h2 class="section-heading" id="eventsHeading">Upcoming Events</h2>
+
+        <div class="events-grid">
+
+          <article class="event-card">
+            <div class="event-date-box" aria-label="April 3">
+              <p class="event-month">Apr</p>
+              <p class="event-day">3</p>
+            </div>
+            <div class="event-info">
+              <h3 class="event-title">Spring Business Mixer</h3>
+              <p class="event-meta">6:00 PM &mdash; The Grand America Hotel<br>Network with 200+ local business leaders.</p>
+            </div>
+          </article>
+
+          <article class="event-card">
+            <div class="event-date-box" aria-label="April 10">
+              <p class="event-month">Apr</p>
+              <p class="event-day">10</p>
+            </div>
+            <div class="event-info">
+              <h3 class="event-title">Small Business Workshop</h3>
+              <p class="event-meta">9:00 AM &mdash; SLC Public Library<br>Marketing, finance, and growth strategies.</p>
+            </div>
+          </article>
+
+          <article class="event-card">
+            <div class="event-date-box" aria-label="April 22">
+              <p class="event-month">Apr</p>
+              <p class="event-day">22</p>
+            </div>
+            <div class="event-info">
+              <h3 class="event-title">Economic Outlook Luncheon</h3>
+              <p class="event-meta">12:00 PM &mdash; Salt Palace Convention Ctr<br>Keynote from Utah's State Economist.</p>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- Weather -->
+      <section class="home-section home-section-weather" aria-labelledby="weatherHeading" id="weatherSection">
+        <h2 class="section-heading" id="weatherHeading">Salt Lake City Weather</h2>
+
+        <div class="weather-widget">
+          <p class="weather-location">Salt Lake City, Utah</p>
+
+          <div class="weather-current-wrap" id="weatherCurrent">
+            <p class="weather-meta">Loading current conditions&hellip;</p>
+          </div>
+
+          <div class="weather-forecast-wrap">
+            <p class="forecast-title">3-Day Forecast</p>
+            <div class="forecast-grid" id="weatherForecast">
+              <!-- Populated by home.js -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Spotlights -->
+      <section class="home-section home-section-spotlights" aria-labelledby="spotlightsHeading">
+        <h2 class="section-heading" id="spotlightsHeading">Member Spotlights</h2>
+
+        <div class="spotlights-grid" id="spotlightsContainer">
+          <!-- Populated by home.js -->
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <section class="footer-contact">
+        <h2>Contact Us</h2>
+        <address>
+          451 South State Street, Suite 200<br>
+          Salt Lake City, UT 84111<br>
+          <a href="tel:+18015249300">(801) 524-9300</a><br>
+          <a href="mailto:info@slchamber.com">info@slchamber.com</a>
+        </address>
+      </section>
+
+      <section class="footer-dev">
+        <h2>Site Info</h2>
+        <p>Tanner L &mdash; WDD 231</p>
+        <p>&copy; <span id="currentYear"></span> Salt Lake Chamber</p>
+        <p id="lastModified"></p>
+      </section>
+    </div>
+  </footer>
+
+</body>
+</html>
