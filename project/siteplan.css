@@ -1,0 +1,247 @@
+/* ── Reset & Base ───────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --green:  #2C4A3E;
+  --cream:  #F5ECD7;
+  --amber:  #C8922A;
+  --brown:  #2A1F14;
+  --sage:   #5C7A6E;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--green);
+  color: var(--cream);
+  font-family: 'Lora', Georgia, serif;
+  line-height: 1.7;
+}
+
+/* ── Header ─────────────────────────────────── */
+header {
+  text-align: center;
+  padding: 3rem 1rem 2rem;
+  border-bottom: 2px solid var(--sage);
+}
+
+header h1 {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  color: var(--amber);
+  letter-spacing: 0.02em;
+}
+
+header .subtitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  color: var(--sage);
+  margin-top: 0.4rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ── Main Layout ─────────────────────────────── */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+/* ── Sections ────────────────────────────────── */
+section {
+  background-color: var(--cream);
+  color: var(--brown);
+  border-radius: 10px;
+  padding: 2rem 2.5rem;
+  border-left: 5px solid var(--amber);
+  box-shadow: 0 4px 18px rgba(0,0,0,0.25);
+}
+
+section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  color: var(--amber);
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--sage);
+  padding-bottom: 0.5rem;
+}
+
+section h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: var(--green);
+  margin-bottom: 0.4rem;
+}
+
+section p {
+  font-family: 'Lora', serif;
+  font-size: 0.97rem;
+  margin-bottom: 0.8rem;
+}
+
+section ul,
+section ol {
+  padding-left: 1.5rem;
+  margin-bottom: 0.8rem;
+}
+
+section li {
+  font-family: 'Lora', serif;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ── Domain note ─────────────────────────────── */
+.domain {
+  font-size: 0.85rem;
+  color: var(--sage);
+  font-style: italic;
+}
+
+.domain span {
+  color: var(--green);
+  font-weight: 600;
+}
+
+/* ── Color Palette ───────────────────────────── */
+.color-palette {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin-top: 1rem;
+}
+
+.color-swatch {
+  flex: 1 1 140px;
+  max-width: 180px;
+}
+
+.swatch {
+  width: 100%;
+  height: 70px;
+  border-radius: 8px;
+  border: 1px solid var(--sage);
+  margin-bottom: 0.5rem;
+}
+
+.hex {
+  font-family: monospace;
+  font-size: 0.82rem;
+  color: var(--sage);
+  margin-bottom: 0.3rem;
+}
+
+/* ── Typography Examples ─────────────────────── */
+.type-examples {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.type-example {
+  background-color: rgba(44, 74, 62, 0.06);
+  border-radius: 8px;
+  padding: 1.2rem 1.5rem;
+  border: 1px solid var(--sage);
+}
+
+.font-script {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2rem;
+  color: var(--amber);
+  margin-bottom: 0.6rem;
+}
+
+.font-display {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--green);
+  margin-bottom: 0.6rem;
+}
+
+.font-body {
+  font-family: 'Lora', serif;
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--brown);
+  margin-bottom: 0.6rem;
+  line-height: 1.8;
+}
+
+/* ── Wireframes ──────────────────────────────── */
+.wireframe-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 1.2rem;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.wireframe {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.wireframe h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  color: var(--green);
+  text-align: center;
+}
+
+.wireframe svg {
+  border: 2px solid var(--sage);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.wireframe:first-child svg {
+  max-width: 260px;
+  width: 100%;
+}
+
+.wireframe:last-child svg {
+  max-width: 700px;
+  width: 100%;
+}
+
+/* ── Footer ──────────────────────────────────── */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  font-family: 'Lora', serif;
+  font-size: 0.85rem;
+  color: var(--sage);
+  border-top: 1px solid var(--sage);
+}
+
+/* ── Responsive ──────────────────────────────── */
+@media (max-width: 600px) {
+  section {
+    padding: 1.4rem 1.2rem;
+  }
+
+  .color-palette {
+    flex-direction: column;
+  }
+
+  .color-swatch {
+    max-width: 100%;
+  }
+}
