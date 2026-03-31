@@ -1,4 +1,6 @@
 :root {
+  color-scheme: light;
+
   --clr-primary:     #b83018;
   --clr-accent:      #e35336;
   --clr-peach:       #ffd3ac;
