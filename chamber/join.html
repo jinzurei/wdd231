@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Salt Lake Chamber | Join</title>
+  <meta name="description" content="Join the Salt Lake Chamber of Commerce and connect your business with hundreds of local organizations across the Wasatch Front.">
+  <meta name="author" content="Tanner L">
+
+  <meta property="og:title" content="Salt Lake Chamber | Join">
+  <meta property="og:description" content="Apply for membership and grow your business with the Salt Lake Chamber.">
+  <meta property="og:image" content="https://jinzurei.github.io/wdd231/chamber/images/chamber-og.svg">
+  <meta property="og:url" content="https://jinzurei.github.io/wdd231/chamber/join.html">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="styles/small.css">
+  <link rel="stylesheet" href="styles/larger.css">
+
+  <script src="scripts/navigation.js" defer></script>
+  <script src="scripts/date.js" defer></script>
+  <script src="scripts/join.js" defer></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Salt Lake Chamber home">
+        <img src="images/favicon.svg" alt="" width="44" height="44" aria-hidden="true">
+        <div class="brand-text">
+          <span class="brand-name">Salt Lake Chamber</span>
+          <span class="brand-tagline">Connect - Grow - Belong</span>
+        </div>
+      </a>
+      <button
+        id="menuButton"
+        class="menu-btn"
+        type="button"
+        aria-controls="primaryNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation menu"
+      >&#9776;</button>
+    </div>
+  </header>
+
+  <nav class="site-nav" aria-label="Primary navigation">
+    <ul id="primaryNav" class="container nav-list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="directory.html">Directory</a></li>
+      <li><a href="join.html" class="active" aria-current="page">Join</a></li>
+      <li><a href="discover.html">Discover</a></li>
+    </ul>
+  </nav>
+
+  <main class="container main-content">
+
+    <h1 class="join-page-heading">Join the Salt Lake Chamber</h1>
+    <p class="intro">Complete the application below to start your membership. A Chamber representative will follow up within two business days.</p>
+
+    <div class="join-layout">
+
+      <!-- ── Application Form ──────────────────────────── -->
+      <section class="join-form-section" aria-labelledby="formHeading">
+        <h2 class="section-heading" id="formHeading">Membership Application</h2>
+
+        <form class="join-form" method="get" action="thankyou.html">
+
+          <p class="form-required-note">Fields marked <span class="required-star" aria-hidden="true">*</span> are required.</p>
+
+          <label>
+            First Name <span class="required-star" aria-hidden="true">*</span>
+            <input
+              type="text"
+              name="firstName"
+              title="Applicant's first name"
+              required
+              autocomplete="given-name"
+              placeholder="Jane"
+            >
+          </label>
+
+          <label>
+            Last Name <span class="required-star" aria-hidden="true">*</span>
+            <input
+              type="text"
+              name="lastName"
+              title="Applicant's last name"
+              required
+              autocomplete="family-name"
+              placeholder="Smith"
+            >
+          </label>
+
+          <label>
+            Organizational Title
+            <input
+              type="text"
+              name="orgTitle"
+              title="Applicant's title within their organization"
+              autocomplete="organization-title"
+              pattern="[A-Za-z \-]{7,}"
+              placeholder="Director of Operations"
+            >
+            <span class="field-hint">Alpha characters, hyphens, and spaces only &mdash; minimum 7 characters</span>
+          </label>
+
+          <label>
+            Email Address <span class="required-star" aria-hidden="true">*</span>
+            <input
+              type="email"
+              name="email"
+              title="Applicant's email address"
+              required
+              autocomplete="email"
+              placeholder="jane.smith@example.com"
+            >
+          </label>
+
+          <label>
+            Mobile Phone <span class="required-star" aria-hidden="true">*</span>
+            <input
+              type="tel"
+              name="mobilePhone"
+              title="Applicant's mobile phone number"
+              required
+              autocomplete="tel"
+              placeholder="(801) 555-0100"
+            >
+          </label>
+
+          <label>
+            Business / Organization Name <span class="required-star" aria-hidden="true">*</span>
+            <input
+              type="text"
+              name="businessName"
+              title="Name of the applicant's business or organization"
+              required
+              autocomplete="organization"
+              placeholder="Acme Corp"
+            >
+          </label>
+
+          <label>
+            Membership Level <span class="required-star" aria-hidden="true">*</span>
+            <select
+              name="membershipLevel"
+              title="Select a membership level for your organization"
+              required
+            >
+              <option value="">-- Select a level --</option>
+              <option value="np">NP Membership (Non-Profit) &mdash; No Fee</option>
+              <option value="bronze">Bronze Membership</option>
+              <option value="silver">Silver Membership</option>
+              <option value="gold">Gold Membership</option>
+            </select>
+          </label>
+
+          <label>
+            Business / Organization Description
+            <textarea
+              name="businessDescription"
+              title="Brief description of the applicant's business or organization"
+              rows="4"
+              placeholder="Tell us about your business or organization&hellip;"
+            ></textarea>
+          </label>
+
+          <input type="hidden" name="timestamp" id="timestamp">
+
+          <input type="submit" class="join-submit" value="Submit Application">
+
+        </form>
+      </section>
+
+      <!-- ── Membership Level Cards ────────────────────── -->
+      <aside class="membership-cards-section" aria-labelledby="levelsHeading">
+        <h2 class="section-heading" id="levelsHeading">Membership Levels</h2>
+        <p class="intro">Click <em>Learn More</em> on any card for the full list of benefits.</p>
+
+        <div class="membership-cards">
+
+          <div class="membership-card card-np">
+            <h3 class="membership-card-title">NP Membership</h3>
+            <p class="membership-card-fee">No Fee</p>
+            <p class="membership-card-desc">For non-profit organizations serving the Salt Lake community.</p>
+            <a
+              href="#modal-np"
+              class="membership-card-link"
+              data-modal="modal-np"
+              aria-haspopup="dialog"
+            >Learn More</a>
+          </div>
+
+          <div class="membership-card card-bronze">
+            <h3 class="membership-card-title">Bronze Membership</h3>
+            <p class="membership-card-fee">$150 / year</p>
+            <p class="membership-card-desc">Ideal for small businesses beginning their Chamber journey.</p>
+            <a
+              href="#modal-bronze"
+              class="membership-card-link"
+              data-modal="modal-bronze"
+              aria-haspopup="dialog"
+            >Learn More</a>
+          </div>
+
+          <div class="membership-card card-silver">
+            <h3 class="membership-card-title">Silver Membership</h3>
+            <p class="membership-card-fee">$350 / year</p>
+            <p class="membership-card-desc">Enhanced visibility for growing businesses seeking more reach.</p>
+            <a
+              href="#modal-silver"
+              class="membership-card-link"
+              data-modal="modal-silver"
+              aria-haspopup="dialog"
+            >Learn More</a>
+          </div>
+
+          <div class="membership-card card-gold">
+            <h3 class="membership-card-title">Gold Membership</h3>
+            <p class="membership-card-fee">$600 / year</p>
+            <p class="membership-card-desc">Premium exposure and maximum benefits for established businesses.</p>
+            <a
+              href="#modal-gold"
+              class="membership-card-link"
+              data-modal="modal-gold"
+              aria-haspopup="dialog"
+            >Learn More</a>
+          </div>
+
+        </div>
+      </aside>
+
+    </div><!-- /.join-layout -->
+
+  </main>
+
+  <!-- ── Membership Modals ─────────────────────────────── -->
+  <dialog id="modal-np" aria-labelledby="modal-np-title">
+    <div class="modal-header">
+      <h2 class="modal-title" id="modal-np-title">NP Membership</h2>
+      <button class="modal-close" aria-label="Close NP Membership details">&#x2715;</button>
+    </div>
+    <p class="modal-fee">No Fee &mdash; Non-Profit Organizations</p>
+    <ul class="modal-benefits">
+      <li>Basic listing in the online member directory</li>
+      <li>Monthly Chamber newsletter subscription</li>
+      <li>Invitations to community networking events</li>
+      <li>Access to Chamber resources and business guides</li>
+      <li>Voting rights in Chamber elections</li>
+    </ul>
+  </dialog>
+
+  <dialog id="modal-bronze" aria-labelledby="modal-bronze-title">
+    <div class="modal-header">
+      <h2 class="modal-title" id="modal-bronze-title">Bronze Membership</h2>
+      <button class="modal-close" aria-label="Close Bronze Membership details">&#x2715;</button>
+    </div>
+    <p class="modal-fee">$150 / year</p>
+    <ul class="modal-benefits">
+      <li>All NP Membership benefits</li>
+      <li>Business listing with logo in the directory</li>
+      <li>10% discount on Chamber-hosted events</li>
+      <li>Access to members-only training workshops</li>
+      <li>Ribbon-cutting ceremony for new businesses</li>
+    </ul>
+  </dialog>
+
+  <dialog id="modal-silver" aria-labelledby="modal-silver-title">
+    <div class="modal-header">
+      <h2 class="modal-title" id="modal-silver-title">Silver Membership</h2>
+      <button class="modal-close" aria-label="Close Silver Membership details">&#x2715;</button>
+    </div>
+    <p class="modal-fee">$350 / year</p>
+    <ul class="modal-benefits">
+      <li>All Bronze Membership benefits</li>
+      <li>Annual spotlight feature in Chamber newsletter</li>
+      <li>20% discount on all Chamber events</li>
+      <li>Four social media mentions per year</li>
+      <li>Priority registration for workshops &amp; seminars</li>
+      <li>Rotating banner placement on the Chamber homepage</li>
+    </ul>
+  </dialog>
+
+  <dialog id="modal-gold" aria-labelledby="modal-gold-title">
+    <div class="modal-header">
+      <h2 class="modal-title" id="modal-gold-title">Gold Membership</h2>
+      <button class="modal-close" aria-label="Close Gold Membership details">&#x2715;</button>
+    </div>
+    <p class="modal-fee">$600 / year</p>
+    <ul class="modal-benefits">
+      <li>All Silver Membership benefits</li>
+      <li>Quarterly spotlight on the Chamber homepage</li>
+      <li>30% discount on all Chamber events</li>
+      <li>Free full-page ad in the annual Chamber magazine</li>
+      <li>Premium &ldquo;Gold Member&rdquo; badge in directory &amp; search results</li>
+      <li>Exclusive invitations to Gold Member networking dinners</li>
+      <li>Complimentary booth at the annual Chamber Expo</li>
+    </ul>
+  </dialog>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <section class="footer-contact">
+        <h2>Contact Us</h2>
+        <address>
+          451 South State Street, Suite 200<br>
+          Salt Lake City, UT 84111<br>
+          <a href="tel:+18015249300">(801) 524-9300</a><br>
+          <a href="mailto:info@slchamber.com">info@slchamber.com</a>
+        </address>
+      </section>
+
+      <section class="footer-dev">
+        <h2>Site Info</h2>
+        <p>Tanner L &mdash; WDD 231</p>
+        <p>&copy; <span id="currentYear"></span> Salt Lake Chamber</p>
+        <p id="lastModified"></p>
+      </section>
+    </div>
+  </footer>
+
+</body>
+</html>

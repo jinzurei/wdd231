@@ -49,6 +49,19 @@
   }
 }
 
+/* ─── Join page — larger layout ───────────────────── */
+@media (min-width: 860px) {
+  .join-layout {
+    grid-template-columns: 2fr 1fr;
+    align-items: start;
+  }
+
+  /* In the sidebar column, cards stack to a single column */
+  .membership-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ─── Home page — larger layout ───────────────────── */
 @media (min-width: 640px) {
   .hero-img {

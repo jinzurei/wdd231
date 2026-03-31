@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Salt Lake Chamber | Thank You</title>
+  <meta name="description" content="Thank you for submitting your membership application to the Salt Lake Chamber of Commerce.">
+  <meta name="author" content="Tanner L">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="styles/small.css">
+  <link rel="stylesheet" href="styles/larger.css">
+
+  <script src="scripts/navigation.js" defer></script>
+  <script src="scripts/date.js" defer></script>
+  <script src="scripts/thankyou.js" defer></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Salt Lake Chamber home">
+        <img src="images/favicon.svg" alt="" width="44" height="44" aria-hidden="true">
+        <div class="brand-text">
+          <span class="brand-name">Salt Lake Chamber</span>
+          <span class="brand-tagline">Connect - Grow - Belong</span>
+        </div>
+      </a>
+      <button
+        id="menuButton"
+        class="menu-btn"
+        type="button"
+        aria-controls="primaryNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation menu"
+      >&#9776;</button>
+    </div>
+  </header>
+
+  <nav class="site-nav" aria-label="Primary navigation">
+    <ul id="primaryNav" class="container nav-list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="directory.html">Directory</a></li>
+      <li><a href="join.html">Join</a></li>
+      <li><a href="discover.html">Discover</a></li>
+    </ul>
+  </nav>
+
+  <main class="container main-content">
+
+    <div class="thankyou-content">
+
+      <h1 class="join-page-heading">Thank You for Applying!</h1>
+      <p class="intro">Your membership application has been received. A Chamber representative will be in touch within two business days to complete your enrollment.</p>
+
+      <section class="submission-summary" aria-labelledby="summaryHeading">
+        <h2 class="section-heading" id="summaryHeading">Submission Summary</h2>
+        <dl class="submission-list" id="submission-info">
+          <!-- Populated by thankyou.js from URL parameters -->
+        </dl>
+      </section>
+
+      <div class="thankyou-actions">
+        <a href="index.html" class="cta-btn">Return to Home</a>
+        <a href="directory.html" class="cta-btn cta-btn-outline">Browse Member Directory</a>
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <section class="footer-contact">
+        <h2>Contact Us</h2>
+        <address>
+          451 South State Street, Suite 200<br>
+          Salt Lake City, UT 84111<br>
+          <a href="tel:+18015249300">(801) 524-9300</a><br>
+          <a href="mailto:info@slchamber.com">info@slchamber.com</a>
+        </address>
+      </section>
+
+      <section class="footer-dev">
+        <h2>Site Info</h2>
+        <p>Tanner L &mdash; WDD 231</p>
+        <p>&copy; <span id="currentYear"></span> Salt Lake Chamber</p>
+        <p id="lastModified"></p>
+      </section>
+    </div>
+  </footer>
+
+</body>
+</html>
