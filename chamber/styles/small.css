@@ -880,6 +880,114 @@ dialog::backdrop {
   border-bottom: none;
 }
 
+/* ── Discover page ──────────────────────────────────── */
+.discover-page-heading {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.9rem;
+  color: var(--clr-brown);
+  margin-bottom: 0.25rem;
+}
+
+.visit-banner {
+  background-color: var(--clr-surface);
+  border: var(--border);
+  border-left: 4px solid var(--clr-primary);
+  border-radius: var(--radius);
+  padding: 0.75rem 1rem;
+  font-size: 0.92rem;
+  color: var(--clr-text-muted);
+  margin-bottom: 1.5rem;
+}
+
+/* Grid — small: single column, all 8 areas stacked */
+.discover-grid {
+  display: grid;
+  grid-template-areas:
+    "card1"
+    "card2"
+    "card3"
+    "card4"
+    "card5"
+    "card6"
+    "card7"
+    "card8";
+  grid-template-columns: 1fr;
+  gap: var(--gap);
+}
+
+.discover-card {
+  background-color: var(--clr-surface);
+  border: var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.discover-figure {
+  margin: 0;
+  overflow: hidden;
+  background-color: var(--clr-card-img-bg);
+}
+
+.discover-figure img {
+  display: block;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.discover-body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1;
+}
+
+.discover-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.1rem;
+  color: var(--clr-brown);
+  margin: 0;
+}
+
+.discover-address {
+  font-style: normal;
+  font-size: 0.82rem;
+  color: var(--clr-text-muted);
+}
+
+.discover-desc {
+  font-size: 0.88rem;
+  color: var(--clr-text);
+  flex: 1;
+  margin: 0;
+}
+
+.discover-btn {
+  align-self: flex-start;
+  margin-top: auto;
+  padding: 0.45rem 1rem;
+  background-color: var(--clr-primary);
+  color: var(--clr-on-dark);
+  font-size: 0.85rem;
+  font-weight: 700;
+  font-family: inherit;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background-color 0.15s, transform 0.1s;
+}
+
+.discover-btn:hover,
+.discover-btn:focus-visible {
+  background-color: var(--clr-brown);
+  outline: 2px solid var(--clr-brown);
+  outline-offset: 2px;
+  transform: translateY(-1px);
+}
+
 /* ── Thank-You page ─────────────────────────────────── */
 .thankyou-content {
   max-width: 600px;

@@ -62,6 +62,50 @@
   }
 }
 
+/* ─── Discover page — medium layout (641–1024px) ──── */
+@media (min-width: 641px) {
+  /* Medium: 2-column grid; cards 3 and 6 span both columns */
+  .discover-grid {
+    grid-template-areas:
+      "card1 card2"
+      "card3 card3"
+      "card4 card5"
+      "card6 card6"
+      "card7 card8";
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Wider cards show landscape image height */
+  .discover-grid [style*="card3"] .discover-figure img,
+  .discover-grid [style*="card6"] .discover-figure img {
+    height: 220px;
+  }
+}
+
+/* ─── Discover page — large layout (1025px+) ──────── */
+@media (min-width: 1025px) {
+  /* Large: 3-column; card1 and card4 span two columns */
+  .discover-grid {
+    grid-template-areas:
+      "card1 card1 card2"
+      "card3 card4 card4"
+      "card5 card6 card7"
+      "card8 card8 .  ";
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  /* Image hover effect — only on larger screens */
+  .discover-figure img {
+    transition: transform 0.35s ease, filter 0.35s ease;
+  }
+
+  .discover-card:hover .discover-figure img,
+  .discover-card:focus-within .discover-figure img {
+    transform: scale(1.06);
+    filter: brightness(1.1) saturate(1.2);
+  }
+}
+
 /* ─── Home page — larger layout ───────────────────── */
 @media (min-width: 640px) {
   .hero-img {

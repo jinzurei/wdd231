@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Salt Lake Chamber | Discover Salt Lake City</title>
+  <meta name="description" content="Discover the best of Salt Lake City — iconic landmarks, natural wonders, and cultural destinations that make the Wasatch Front a great place to live and do business.">
+  <meta name="author" content="Tanner L">
+
+  <meta property="og:title" content="Salt Lake Chamber | Discover Salt Lake City">
+  <meta property="og:description" content="Explore Salt Lake City's top attractions and discover why businesses thrive in Utah's capital.">
+  <meta property="og:image" content="https://jinzurei.github.io/wdd231/chamber/images/chamber-og.svg">
+  <meta property="og:url" content="https://jinzurei.github.io/wdd231/chamber/discover.html">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="styles/small.css">
+  <link rel="stylesheet" href="styles/larger.css">
+
+  <script src="scripts/navigation.js" defer></script>
+  <script src="scripts/date.js" defer></script>
+  <script type="module" src="scripts/discover.js"></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Salt Lake Chamber home">
+        <img src="images/favicon.svg" alt="" width="44" height="44" aria-hidden="true">
+        <div class="brand-text">
+          <span class="brand-name">Salt Lake Chamber</span>
+          <span class="brand-tagline">Connect - Grow - Belong</span>
+        </div>
+      </a>
+      <button
+        id="menuButton"
+        class="menu-btn"
+        type="button"
+        aria-controls="primaryNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation menu"
+      >&#9776;</button>
+    </div>
+  </header>
+
+  <nav class="site-nav" aria-label="Primary navigation">
+    <ul id="primaryNav" class="container nav-list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="directory.html">Directory</a></li>
+      <li><a href="join.html">Join</a></li>
+      <li><a href="discover.html" class="active" aria-current="page">Discover</a></li>
+    </ul>
+  </nav>
+
+  <main class="container main-content">
+
+    <h1 class="discover-page-heading">Discover Salt Lake City</h1>
+    <p class="intro">Explore the landmarks, green spaces, and cultural destinations that make Salt Lake City an exceptional place to live, work, and grow your business.</p>
+
+    <p class="visit-banner" id="visitBanner" aria-live="polite"></p>
+
+    <section aria-labelledby="attractionsHeading">
+      <h2 class="section-heading" id="attractionsHeading">Points of Interest</h2>
+      <div class="discover-grid" id="discoverGrid">
+        <!-- Cards injected by discover.js -->
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <section class="footer-contact">
+        <h2>Contact Us</h2>
+        <address>
+          451 South State Street, Suite 200<br>
+          Salt Lake City, UT 84111<br>
+          <a href="tel:+18015249300">(801) 524-9300</a><br>
+          <a href="mailto:info@slchamber.com">info@slchamber.com</a>
+        </address>
+      </section>
+
+      <section class="footer-dev">
+        <h2>Site Info</h2>
+        <p>Tanner L &mdash; WDD 231</p>
+        <p>&copy; <span id="currentYear"></span> Salt Lake Chamber</p>
+        <p id="lastModified"></p>
+      </section>
+    </div>
+  </footer>
+
+</body>
+</html>
