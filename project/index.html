@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Librarian's Shelf</title>
+  <meta name="description" content="A personal book recommendation blog spanning spiritual wisdom, historical non-fiction, and science — curated by a librarian.">
+  <meta name="author" content="Jin LaFrano">
+  <meta property="og:title" content="The Librarian's Shelf">
+  <meta property="og:description" content="A personal book recommendation blog spanning spiritual wisdom, historical non-fiction, and science — curated by a librarian.">
+  <meta property="og:image" content="images/covers/logo.webp">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style/home.css">
+</head>
+<body>
+
+  <!-- ── NAV ──────────────────────────────────────────────── -->
+  <header class="site-header">
+    <nav class="nav">
+      <a href="index.html" class="nav-brand">
+        <img src="images/logo.svg" class="nav-logo-img" alt="" aria-hidden="true" width="44" height="44">
+        The Librarian's Shelf
+      </a>
+
+      <button class="nav-toggle" id="navToggle"
+              aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks" role="list">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="browse.html">Browse</a></li>
+        <li><a href="reading-list.html">Reading List</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ── HERO: 3D Book Carousel ────────────────────────── -->
+    <section class="hero" aria-label="Featured books">
+
+      <div class="carousel-wrapper">
+        <button class="carousel-btn" id="prevBtn" aria-label="Previous book">&#x2039;</button>
+
+        <div class="carousel-scene">
+          <div class="carousel-ring" id="carouselRing"
+               role="region" aria-label="Rotating featured books"></div>
+        </div>
+
+        <button class="carousel-btn" id="nextBtn" aria-label="Next book">&#x203A;</button>
+      </div>
+
+<div class="carousel-info" id="carouselInfo" aria-live="polite"></div>
+
+    </section>
+
+    <!-- ── ABOUT ─────────────────────────────────────────── -->
+    <section class="about" aria-labelledby="about-heading">
+      <div class="about-inner">
+
+        <div class="about-portrait">
+          <p class="portrait-name">Our Mascot<br>Lydia the Librarian</p>
+          <img class="portrait-img" src="images/covers/librarianimage02.webp" alt="Artistic portrait of The Librarian" loading="lazy">
+        </div>
+
+        <div class="about-text">
+          <h2 id="about-heading">About the Librarian</h2>
+          <p>
+            I have been a librarian for seventeen years, and in that time I have become
+            convinced of one thing: the right book at the right moment can change the
+            architecture of a person's interior life. This is not hyperbole. I have
+            watched it happen.
+          </p>
+          <p>
+            This shelf is where I keep the books that have done this for me — across
+            three territories I return to again and again: the spiritual, the historical,
+            and the scientific. They are not separate in my mind. The mystic and the
+            physicist are asking the same question. The Roman senator and the wandering
+            pilgrim are navigating the same darkness.
+          </p>
+          <p>Come in. Stay as long as you like.</p>
+          <blockquote>
+            "The right book at the right moment can change the architecture of
+            a person's interior life."
+          </blockquote>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── RECENT REVIEWS ────────────────────────────────── -->
+    <section class="recent-reviews" aria-labelledby="reviews-heading">
+
+      <div class="reviews-header">
+        <h2 id="reviews-heading">Recent Reviews</h2>
+        <p>The latest additions to the shelf — each one chosen carefully.</p>
+      </div>
+
+      <div class="reviews-grid" id="reviewsGrid"></div>
+
+      <div class="browse-center">
+        <a href="browse.html" class="btn-browse">Browse All Books &#x2192;</a>
+      </div>
+
+    </section>
+
+    <!-- ── NEWSLETTER ─────────────────────────────────────── -->
+    <section class="newsletter" aria-labelledby="newsletter-heading">
+      <div class="newsletter-inner">
+        <h2 id="newsletter-heading">Join the Reading List</h2>
+        <p>One recommendation, every week. No noise &mdash; just books worth your time.</p>
+        <form class="newsletter-form" novalidate>
+          <label for="email-input" class="sr-only">Email address</label>
+          <input type="email" id="email-input"
+                 placeholder="your@email.com"
+                 required autocomplete="email">
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── FOOTER ─────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <p>The Librarian's Shelf &mdash; Built with care for curious readers &mdash; WDD231</p>
+  </footer>
+
+  <script type="module" src="script/carousel.js"></script>
+
+</body>
+</html>

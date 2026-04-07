@@ -1,0 +1,766 @@
+/* ── Reset & Variables ───────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --green:      #2C4A3E;
+  --cream:      #F5ECD7;
+  --amber:      #C8922A;
+  --amber-dark: #a87520;
+  --brown:      #2A1F14;
+  --sage:       #5C7A6E;
+
+  --genre-spiritual:  #2E65C4;
+  --genre-historical: #2E8C4A;
+  --genre-science:    #B03535;
+  --genre-philosophy: #7B3FA0;
+}
+
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  background: var(--green);
+  color: var(--cream);
+  font-family: 'Lora', Georgia, serif;
+  line-height: 1.7;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ── NAV ─────────────────────────────────────────────────────── */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--green);
+  border-bottom: 1px solid var(--sage);
+}
+
+.nav {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-brand {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.75rem;
+  color: var(--amber);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-logo-img {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  font-family: 'Lora', serif;
+  font-size: 0.9rem;
+  color: var(--cream);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active { color: var(--amber); }
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--cream);
+  border-radius: 2px;
+  transition: transform 0.25s, opacity 0.25s;
+}
+
+/* ── HERO ────────────────────────────────────────────────────── */
+.hero {
+  background: var(--green);
+  padding: 3.5rem 1rem 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carousel-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 760px;
+}
+
+.carousel-btn {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 2px solid var(--sage);
+  background: transparent;
+  color: var(--cream);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.carousel-btn:hover {
+  background: var(--sage);
+  border-color: var(--sage);
+}
+
+.carousel-scene {
+  flex: 1;
+  height: 420px;
+  perspective: 1100px;
+  perspective-origin: center 45%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+.carousel-ring {
+  position: relative;
+  width: 0;
+  height: 0;
+  transform-style: preserve-3d;
+  transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: grab;
+}
+
+.carousel-ring.dragging  { transition: none; cursor: grabbing; }
+.carousel-ring.no-transition { transition: none; }
+
+/* ── Book (carousel item) ────────────────────────────────────── */
+.book {
+  position: absolute;
+  top: -135px;   /* -½ book height (270px) */
+  left: -95px;   /* -½ book width  (190px) */
+  width: 190px;
+  height: 270px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+}
+
+.book-cover {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  border-radius: 0 6px 6px 0;
+  box-shadow: 6px 6px 28px rgba(0,0,0,0.6);
+  transition: box-shadow 0.35s, filter 0.35s;
+  filter: brightness(0.68);
+  user-select: none;
+}
+
+.book.active .book-cover {
+  box-shadow: 10px 10px 42px rgba(0,0,0,0.65), 0 0 36px rgba(200,146,42,0.3);
+  filter: brightness(1);
+}
+
+.book-spine {
+  width: 22px;
+  background: rgba(0,0,0,0.45);
+  border-right: 1px solid rgba(255,255,255,0.07);
+  border-radius: 3px 0 0 3px;
+  flex-shrink: 0;
+}
+
+.book.genre-spiritual  .book-spine { background: var(--genre-spiritual); }
+.book.genre-historical .book-spine { background: var(--genre-historical); }
+.book.genre-science    .book-spine { background: var(--genre-science); }
+.book.genre-philosophy .book-spine { background: var(--genre-philosophy); }
+
+/* Face = full image area */
+.book-face {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0 6px 6px 0;
+}
+
+/* Coloured fallback shown when no image is present */
+.book-placeholder {
+  position: absolute;
+  inset: 0;
+  background: var(--book-color, var(--amber));
+  background-image: linear-gradient(150deg, rgba(255,255,255,0.12) 0%, rgba(0,0,0,0.3) 100%);
+}
+
+/* The actual cover image — sits on top of placeholder */
+.book-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Home page recent-review card cover image */
+.card-book-face {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-book-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Bookmark banner — genre + author overlay at the bottom */
+.book-banner {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  background: linear-gradient(to bottom, transparent, rgba(15, 8, 3, 0.92));
+  padding: 40px 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+
+.banner-genre {
+  font-family: 'Lora', serif;
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+.banner-author {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.75rem;
+  font-style: italic;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.3;
+}
+
+
+/* ── Info panel ──────────────────────────────────────────────── */
+.carousel-info {
+  text-align: center;
+  max-width: 540px;
+  width: 100%;
+  padding: 1.8rem 1.5rem 0;
+  margin-top: 2.5rem;
+  position: relative;
+  z-index: 10;
+  height: 260px;
+  overflow: hidden;
+}
+
+.info-genre {
+  font-family: 'Lora', serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 0.4rem;
+}
+
+.info-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.75rem;
+  color: var(--amber);
+  line-height: 1.2;
+  margin-bottom: 0.25rem;
+}
+
+.info-author {
+  font-family: 'Lora', serif;
+  font-size: 0.92rem;
+  color: var(--sage);
+  margin-bottom: 1rem;
+}
+
+.info-desc {
+  font-family: 'Lora', serif;
+  font-size: 0.9rem;
+  line-height: 1.75;
+  color: rgba(245,236,215,0.82);
+  margin-bottom: 1.5rem;
+}
+
+.btn-read {
+  display: inline-block;
+  background: var(--amber);
+  color: var(--cream);
+  font-family: 'Playfair Display', serif;
+  font-size: 0.95rem;
+  padding: 0.6rem 1.8rem;
+  border-radius: 2rem;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.btn-read:hover { background: var(--amber-dark); }
+
+/* ── ABOUT ───────────────────────────────────────────────────── */
+.about {
+  background: var(--cream);
+  padding-top: 1.5rem;
+  padding-bottom: 0;
+  overflow: hidden;
+}
+
+.about-inner {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  min-height: 460px;
+  padding: 3rem 2rem 2.5rem 420px;
+}
+
+.about-portrait {
+  position: absolute;
+  left: -30px;
+  bottom: 0;
+  width: 520px;
+  height: 100%;
+}
+
+.portrait-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom left;
+  display: block;
+  transform: scaleX(-1);
+}
+
+.about-text {
+  position: relative;
+  z-index: 1;
+  max-width: 520px;
+}
+
+.portrait-name {
+  position: absolute;
+  top: 37%;
+  left: 65px;
+  font-family: 'Playfair Display', serif;
+  font-size: 0.7rem;
+  color: var(--amber);
+  white-space: nowrap;
+  z-index: 2;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+}
+
+
+.about-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.9rem;
+  color: var(--amber);
+  margin-bottom: 1.1rem;
+}
+
+.about-text p {
+  font-family: 'Lora', serif;
+  font-size: 0.97rem;
+  color: var(--brown);
+  line-height: 1.85;
+  margin-bottom: 0.9rem;
+}
+
+.about-text blockquote {
+  margin-top: 1.5rem;
+  padding-left: 1.2rem;
+  border-left: 3px solid var(--amber);
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.35rem;
+  color: var(--green);
+  line-height: 1.55;
+}
+
+/* ── RECENT REVIEWS ──────────────────────────────────────────── */
+.recent-reviews {
+  background: var(--green);
+  padding: 5rem 2rem;
+}
+
+.reviews-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.reviews-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.9rem;
+  color: var(--amber);
+  margin-bottom: 0.3rem;
+}
+
+.reviews-header p {
+  font-family: 'Lora', serif;
+  font-size: 0.9rem;
+  color: var(--sage);
+}
+
+.reviews-grid {
+  max-width: 900px;
+  margin: 0 auto 2.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.review-card {
+  background: var(--cream);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 22px rgba(0,0,0,0.3);
+  transition: transform 0.25s;
+}
+
+.review-card:hover { transform: translateY(-5px); }
+
+/* Book cover image area at top of card */
+.card-cover-area {
+  height: 170px;
+  background: #192820;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-book-visual {
+  display: flex;
+  height: 138px;
+  box-shadow: 6px 6px 18px rgba(0,0,0,0.55);
+}
+
+.card-book-spine {
+  width: 14px;
+  background: rgba(0,0,0,0.38);
+  border-radius: 2px 0 0 2px;
+  flex-shrink: 0;
+}
+
+.card-book-spine.genre-spiritual  { background: var(--genre-spiritual); }
+.card-book-spine.genre-historical { background: var(--genre-historical); }
+.card-book-spine.genre-science    { background: var(--genre-science); }
+.card-book-spine.genre-philosophy { background: var(--genre-philosophy); }
+
+.card-book-face {
+  width: 96px;
+  background: var(--book-color, var(--amber));
+  padding: 10px;
+  display: flex;
+  align-items: flex-end;
+  border-radius: 0 2px 2px 0;
+}
+
+.card-book-label {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.3;
+}
+
+/* Card text content */
+.card-body {
+  padding: 1.2rem 1.3rem 1.3rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.6rem;
+}
+
+.card-genre-badge {
+  font-family: 'Lora', serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.65rem;
+  border-radius: 2rem;
+  background: var(--sage);
+  color: var(--cream);
+}
+
+.card-genre-badge.genre-spiritual  { background: var(--genre-spiritual); }
+.card-genre-badge.genre-historical { background: var(--genre-historical); }
+.card-genre-badge.genre-science    { background: var(--genre-science); }
+.card-genre-badge.genre-philosophy { background: var(--genre-philosophy); }
+
+.save-btn {
+  background: none;
+  border: none;
+  font-size: 1.15rem;
+  cursor: pointer;
+  color: var(--sage);
+  transition: color 0.2s, transform 0.15s;
+  padding: 2px;
+  line-height: 1;
+}
+
+.save-btn:hover  { transform: scale(1.2); }
+.save-btn.saved  { color: #c0392b; }
+
+.card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  color: var(--brown);
+  line-height: 1.3;
+  margin-bottom: 0.15rem;
+}
+
+.card-author {
+  font-family: 'Lora', serif;
+  font-size: 0.82rem;
+  color: var(--sage);
+  font-style: italic;
+  margin-bottom: 0.7rem;
+}
+
+.card-desc {
+  font-family: 'Lora', serif;
+  font-size: 0.87rem;
+  color: var(--brown);
+  line-height: 1.65;
+  margin-bottom: 1rem;
+  flex: 1;
+}
+
+.card-link {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.88rem;
+  color: var(--amber);
+  text-decoration: none;
+  transition: color 0.2s;
+  align-self: flex-start;
+}
+
+.card-link:hover { color: var(--amber-dark); }
+
+.browse-center { text-align: center; }
+
+.btn-browse {
+  display: inline-block;
+  border: 2px solid var(--amber);
+  color: var(--amber);
+  font-family: 'Playfair Display', serif;
+  font-size: 0.95rem;
+  padding: 0.6rem 1.8rem;
+  border-radius: 2rem;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-browse:hover {
+  background: var(--amber);
+  color: var(--cream);
+}
+
+/* ── NEWSLETTER ──────────────────────────────────────────────── */
+.newsletter {
+  background: var(--brown);
+  padding: 4rem 2rem;
+}
+
+.newsletter-inner {
+  max-width: 560px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.newsletter h2 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.4rem;
+  color: var(--amber);
+  margin-bottom: 0.4rem;
+}
+
+.newsletter p {
+  font-family: 'Lora', serif;
+  font-size: 0.9rem;
+  color: var(--cream);
+  opacity: 0.75;
+  margin-bottom: 1.5rem;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.newsletter-form input[type="email"] {
+  flex: 1;
+  padding: 0.65rem 1rem;
+  border: 1px solid var(--sage);
+  background: rgba(245,236,215,0.08);
+  color: var(--cream);
+  border-radius: 6px;
+  font-family: 'Lora', serif;
+  font-size: 0.93rem;
+}
+
+.newsletter-form input::placeholder { color: var(--sage); }
+
+.newsletter-form input:focus {
+  outline: 2px solid var(--amber);
+  outline-offset: 1px;
+}
+
+.newsletter-form button {
+  padding: 0.65rem 1.4rem;
+  background: var(--amber);
+  color: var(--cream);
+  border: none;
+  border-radius: 6px;
+  font-family: 'Playfair Display', serif;
+  font-size: 0.93rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.newsletter-form button:hover { background: var(--amber-dark); }
+
+.newsletter-thanks {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.4rem;
+  color: var(--amber);
+}
+
+/* ── FOOTER ──────────────────────────────────────────────────── */
+.site-footer {
+  background: var(--green);
+  border-top: 1px solid var(--sage);
+  padding: 1.5rem;
+  text-align: center;
+  font-family: 'Lora', serif;
+  font-size: 0.82rem;
+  color: var(--sage);
+}
+
+/* ── RESPONSIVE ──────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .nav-toggle { display: flex; }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: var(--green);
+    flex-direction: column;
+    padding: 0.25rem 0;
+    gap: 0;
+    border-top: 1px solid var(--sage);
+    border-bottom: 1px solid var(--sage);
+  }
+
+  .nav-links.open { display: flex; }
+
+  .nav-links li a {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    border-bottom: 1px solid rgba(92,122,110,0.2);
+  }
+
+  .book {
+    width: 130px;
+    height: 190px;
+    top: -95px;
+    left: -65px;
+  }
+
+  .carousel-scene { height: 310px; }
+
+  .info-title { font-size: 1.3rem; }
+
+  .about-inner {
+    padding: 0 1.5rem 2.5rem;
+    min-height: auto;
+  }
+
+  .about-portrait {
+    position: relative;
+    width: 70%;
+    height: 280px;
+    margin: 0 auto;
+  }
+
+  .portrait-name {
+    top: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .about-text {
+    padding: 1.5rem 0 0;
+    max-width: 100%;
+  }
+
+  .about-text blockquote {
+    border-left: none;
+    border-top: 3px solid var(--amber);
+    padding-left: 0;
+    padding-top: 1rem;
+    margin-top: 1rem;
+  }
+
+  .newsletter-form { flex-direction: column; }
+}

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subscribed — The Librarian's Shelf</title>
+  <meta name="description" content="You've joined the reading list. One recommendation, every week.">
+  <meta name="author" content="Jin LaFrano">
+  <meta property="og:title" content="Subscribed — The Librarian's Shelf">
+  <meta property="og:description" content="You've joined the reading list. One recommendation, every week.">
+  <meta property="og:image" content="images/covers/logo.webp">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style/home.css">
+  <style>
+    .thanks-section {
+      min-height: calc(100vh - 120px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 1.5rem;
+    }
+
+    .thanks-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      max-width: 560px;
+      width: 100%;
+      padding: 3rem 2.5rem;
+      text-align: center;
+    }
+
+    .thanks-icon {
+      font-size: 3rem;
+      line-height: 1;
+      margin-bottom: 1.25rem;
+    }
+
+    .thanks-heading {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 2rem;
+      color: var(--amber);
+      margin-bottom: 0.75rem;
+    }
+
+    .thanks-sub {
+      font-size: 1.05rem;
+      color: var(--sage);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .thanks-detail {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+    }
+
+    .thanks-detail .label {
+      color: var(--sage);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.3rem;
+    }
+
+    .thanks-detail .value {
+      color: var(--cream);
+      font-family: 'Lora', Georgia, serif;
+      word-break: break-all;
+    }
+
+    .thanks-back {
+      display: inline-block;
+      background: var(--amber);
+      color: var(--brown);
+      font-family: 'Lora', Georgia, serif;
+      font-weight: 500;
+      padding: 0.65rem 1.75rem;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .thanks-back:hover {
+      background: var(--amber-dark);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ──────────────────────────────────────────────── -->
+  <header class="site-header">
+    <nav class="nav">
+      <a href="index.html" class="nav-brand">
+        <img src="images/logo.svg" class="nav-logo-img" alt="" aria-hidden="true" width="44" height="44">
+        The Librarian's Shelf
+      </a>
+
+      <button class="nav-toggle" id="navToggle"
+              aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="browse.html">Browse</a></li>
+        <li><a href="reading-list.html">Reading List</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="thanks-section">
+      <div class="thanks-card">
+        <div class="thanks-icon" aria-hidden="true">&#x1F4DA;</div>
+        <h1 class="thanks-heading">You're on the list.</h1>
+        <p class="thanks-sub">
+          Your first recommendation arrives soon — one carefully chosen book,
+          and nothing else.
+        </p>
+        <div class="thanks-detail">
+          <p class="label">Confirmation sent to</p>
+          <p class="value" id="confirmedEmail">—</p>
+        </div>
+        <a href="index.html" class="thanks-back">&#x2190; Back to the Shelf</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ── FOOTER ─────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <p>The Librarian's Shelf &mdash; Built with care for curious readers &mdash; WDD231</p>
+  </footer>
+
+  <script>
+    // Read email from URL params
+    const email = new URLSearchParams(window.location.search).get('email');
+    const el    = document.getElementById('confirmedEmail');
+    if (email && el) {
+      el.textContent = decodeURIComponent(email);
+    }
+
+    // Mobile nav
+    const toggle   = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    if (toggle && navLinks) {
+      toggle.addEventListener('click', () => {
+        const open = navLinks.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(open));
+      });
+    }
+  </script>
+
+</body>
+</html>

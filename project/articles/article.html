@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Review — The Librarian's Shelf</title>
+  <meta name="description" content="A book review from The Librarian's Shelf.">
+  <meta name="author" content="Jin LaFrano">
+  <meta property="og:title" content="Review — The Librarian's Shelf">
+  <meta property="og:description" content="A book review from The Librarian's Shelf.">
+  <meta property="og:image" content="../images/covers/logo.webp">
+  <meta property="og:type" content="article">
+  <link rel="icon" href="../images/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style/article.css">
+</head>
+<body>
+
+  <!-- ── NAV ──────────────────────────────────────────────── -->
+  <header class="site-header">
+    <nav class="nav">
+      <a href="../index.html" class="nav-brand">
+        <img src="../images/logo.svg" class="nav-logo-img" alt="" aria-hidden="true" width="44" height="44">
+        The Librarian's Shelf
+      </a>
+
+      <button class="nav-toggle" id="navToggle"
+              aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks" role="list">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../browse.html">Browse</a></li>
+        <li><a href="../reading-list.html">Reading List</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ── HERO ─────────────────────────────────────────────── -->
+    <section class="article-hero" id="articleHero" aria-labelledby="bookTitle">
+
+      <div class="hero-inner">
+
+        <!-- Book cover -->
+        <div class="hero-cover-col">
+          <div class="hero-book" id="heroCover">
+            <div class="hero-book-spine"></div>
+            <div class="hero-book-face">
+              <img class="hero-book-img" id="heroCoverImg" src="" alt="" onerror="this.style.display='none'">
+            </div>
+          </div>
+        </div>
+
+        <!-- Metadata -->
+        <div class="hero-meta-col">
+          <div class="hero-badges">
+            <span class="hero-genre-badge" id="heroGenre"></span>
+          </div>
+          <h1 class="hero-title" id="bookTitle"></h1>
+          <p class="hero-author" id="heroAuthor"></p>
+          <p class="hero-date" id="heroDate"></p>
+          <p class="hero-description" id="heroDesc"></p>
+          <div class="hero-actions">
+            <a class="btn-amazon" id="amazonLink" href="#" target="_blank" rel="noopener noreferrer">
+              Find on Amazon &#x2197;
+            </a>
+            <button class="hero-save-btn" id="saveBtn" aria-label="Save to reading list">
+              <span id="saveBtnIcon" aria-hidden="true">♡</span>
+              <span id="saveBtnLabel">Save</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ── ARTICLE BODY ──────────────────────────────────────── -->
+    <article class="article-body">
+
+      <div class="article-back">
+        <a href="../browse.html" class="back-link">&#x2190; Back to Browse</a>
+      </div>
+
+      <div class="article-content" id="articleContent">
+        <!-- Populated by article.js -->
+      </div>
+
+    </article>
+
+  </main>
+
+  <!-- ── FOOTER ─────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <p>The Librarian's Shelf &mdash; Built with care for curious readers &mdash; WDD231</p>
+  </footer>
+
+  <script type="module" src="../script/article.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,432 @@
+/* ── Reset & Variables ───────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --green:      #2C4A3E;
+  --cream:      #F5ECD7;
+  --amber:      #C8922A;
+  --amber-dark: #a87520;
+  --brown:      #2A1F14;
+  --sage:       #5C7A6E;
+
+  --genre-spiritual:  #2E65C4;
+  --genre-historical: #2E8C4A;
+  --genre-science:    #B03535;
+  --genre-philosophy: #7B3FA0;
+}
+
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  background: var(--green);
+  color: var(--cream);
+  font-family: 'Lora', Georgia, serif;
+  line-height: 1.7;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ── NAV ─────────────────────────────────────────────────────── */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--green);
+  border-bottom: 1px solid var(--sage);
+}
+
+.nav {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-brand {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.75rem;
+  color: var(--amber);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-logo-img { width: 44px; height: 44px; flex-shrink: 0; }
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  font-family: 'Lora', serif;
+  font-size: 0.9rem;
+  color: var(--cream);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active { color: var(--amber); }
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--cream);
+  border-radius: 2px;
+  transition: transform 0.25s, opacity 0.25s;
+}
+
+/* ── ARTICLE HERO ────────────────────────────────────────────── */
+.article-hero {
+  background: var(--green);
+  padding: 5rem 2rem 4rem;
+  border-bottom: 1px solid rgba(92, 122, 110, 0.3);
+}
+
+.hero-inner {
+  max-width: 980px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+/* ── Hero book cover ─────────────────────────────────────────── */
+.hero-cover-col {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-book {
+  display: flex;
+  width: 220px;
+  height: 310px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  box-shadow: 8px 12px 40px rgba(0, 0, 0, 0.65), 0 0 60px rgba(0, 0, 0, 0.25);
+  background-color: var(--book-color, var(--amber));
+  background-image: linear-gradient(150deg, rgba(255,255,255,0.09) 0%, transparent 55%);
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-book-spine {
+  width: 26px;
+  flex-shrink: 0;
+  background: rgba(0, 0, 0, 0.4);
+  border-right: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.hero-book-face {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-book-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ── Hero metadata ───────────────────────────────────────────── */
+.hero-meta-col {
+  flex: 1;
+  min-width: 0;
+}
+
+.hero-badges {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  margin-bottom: 1.1rem;
+  flex-wrap: wrap;
+}
+
+.hero-genre-badge {
+  font-family: 'Lora', serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.75rem;
+  border-radius: 2rem;
+  color: var(--cream);
+}
+
+.hero-genre-badge { background: var(--sage); }
+.hero-genre-badge.genre-spiritual  { background: var(--genre-spiritual); }
+.hero-genre-badge.genre-historical { background: var(--genre-historical); }
+.hero-genre-badge.genre-science    { background: var(--genre-science); }
+.hero-genre-badge.genre-philosophy { background: var(--genre-philosophy); }
+
+/* Spine locked to genre colour */
+.hero-book.genre-spiritual  .hero-book-spine { background: var(--genre-spiritual); }
+.hero-book.genre-historical .hero-book-spine { background: var(--genre-historical); }
+.hero-book.genre-science    .hero-book-spine { background: var(--genre-science); }
+.hero-book.genre-philosophy .hero-book-spine { background: var(--genre-philosophy); }
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.75rem;
+  color: var(--amber);
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
+}
+
+.hero-author {
+  font-family: 'Lora', serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--sage);
+  margin-bottom: 0.3rem;
+}
+
+.hero-date {
+  font-family: 'Lora', serif;
+  font-size: 0.78rem;
+  color: rgba(92, 122, 110, 0.75);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.25rem;
+}
+
+.hero-description {
+  font-family: 'Lora', serif;
+  font-size: 0.97rem;
+  color: rgba(245, 236, 215, 0.75);
+  line-height: 1.75;
+  margin-bottom: 1.75rem;
+  max-width: 480px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.btn-amazon {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.9rem;
+  background: var(--amber);
+  color: var(--cream);
+  text-decoration: none;
+  padding: 0.6rem 1.4rem;
+  border-radius: 2rem;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.btn-amazon:hover { background: var(--amber-dark); }
+
+.hero-save-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: none;
+  border: 2px solid var(--sage);
+  color: var(--cream);
+  font-family: 'Lora', serif;
+  font-size: 0.88rem;
+  padding: 0.55rem 1.2rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.hero-save-btn:hover { border-color: var(--amber); color: var(--amber); }
+
+.hero-save-btn.saved {
+  border-color: #c0392b;
+  color: #c0392b;
+}
+
+/* ── ARTICLE BODY ────────────────────────────────────────────── */
+.article-body {
+  background: var(--cream);
+  padding: 3.5rem 2rem 6rem;
+}
+
+.article-back {
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+}
+
+.back-link {
+  font-family: 'Lora', serif;
+  font-size: 0.82rem;
+  color: var(--sage);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: color 0.2s;
+}
+
+.back-link:hover { color: var(--amber); }
+
+.article-content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ── Review typography ───────────────────────────────────────── */
+.article-content p {
+  font-family: 'Lora', serif;
+  font-size: 1.05rem;
+  color: var(--brown);
+  line-height: 1.9;
+  margin-bottom: 1.6rem;
+}
+
+/* Drop cap on the first paragraph */
+.article-content p:first-of-type::first-letter {
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--amber);
+  float: left;
+  line-height: 0.8;
+  margin: 0.1em 0.1em 0 0;
+}
+
+/* Pull quote */
+.pull-quote {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.65rem;
+  color: var(--green);
+  line-height: 1.5;
+  margin: 2.5rem 0;
+  padding: 1.5rem 2rem;
+  border-left: 4px solid var(--amber);
+  background: rgba(44, 74, 62, 0.06);
+  border-radius: 0 6px 6px 0;
+}
+
+/* Article CTA area */
+.article-cta {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(92, 122, 110, 0.3);
+}
+
+.article-cta .btn-amazon {
+  background: var(--amber);
+  color: var(--cream);
+}
+
+.article-cta .hero-save-btn {
+  border-color: var(--sage);
+  color: var(--brown);
+}
+
+.article-cta .hero-save-btn:hover {
+  border-color: var(--amber);
+  color: var(--amber-dark);
+}
+
+.article-cta .hero-save-btn.saved {
+  border-color: #c0392b;
+  color: #c0392b;
+}
+
+/* ── FOOTER ──────────────────────────────────────────────────── */
+.site-footer {
+  background: var(--green);
+  border-top: 1px solid var(--sage);
+  padding: 1.5rem;
+  text-align: center;
+  font-family: 'Lora', serif;
+  font-size: 0.82rem;
+  color: var(--sage);
+}
+
+/* ── RESPONSIVE ──────────────────────────────────────────────── */
+@media (max-width: 760px) {
+  .hero-inner {
+    flex-direction: column;
+    gap: 2.5rem;
+    text-align: center;
+  }
+
+  .hero-badges { justify-content: center; }
+  .hero-actions { justify-content: center; }
+  .hero-description { max-width: 100%; }
+  .hero-title { font-size: 2.1rem; }
+
+  .hero-book {
+    width: 170px;
+    height: 240px;
+  }
+
+  .article-content p:first-of-type::first-letter {
+    font-size: 3rem;
+  }
+
+  .pull-quote { font-size: 1.35rem; padding: 1.2rem 1.4rem; }
+}
+
+@media (max-width: 640px) {
+  .nav-toggle { display: flex; }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: var(--green);
+    flex-direction: column;
+    padding: 0.25rem 0;
+    gap: 0;
+    border-top: 1px solid var(--sage);
+    border-bottom: 1px solid var(--sage);
+  }
+
+  .nav-links.open { display: flex; }
+
+  .nav-links li a {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    border-bottom: 1px solid rgba(92, 122, 110, 0.2);
+  }
+
+  .article-hero { padding: 3rem 1.25rem 3rem; }
+  .article-body { padding: 2.5rem 1.25rem 5rem; }
+}

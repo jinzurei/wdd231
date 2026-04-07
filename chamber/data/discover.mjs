@@ -22,7 +22,7 @@ export const attractions = [
     "description": "A world-class museum showcasing Utah's extraordinary natural and cultural heritage. Marvel at full dinosaur skeletons, learn about ancient Native American cultures, and discover the state's diverse ecosystems.",
     "image": "images/discover/natural-history-museum.webp",
     "alt": "Dinosaur skeleton display inside the Natural History Museum of Utah"
-  },
+  }, 
   {
     "id": 4,
     "name": "Liberty Park",
