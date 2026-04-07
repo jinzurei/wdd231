@@ -71,6 +71,11 @@ function render() {
       this.setAttribute('aria-label', added ? 'Remove from reading list' : 'Save to reading list');
     });
 
+    item.addEventListener('click', () => {
+      if (window.innerWidth > 640) return;
+      window.location.href = `articles/article.html?id=${book.id}`;
+    });
+
     grid.appendChild(item);
   });
 

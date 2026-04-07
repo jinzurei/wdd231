@@ -17,6 +17,27 @@
 
 html { font-size: 16px; scroll-behavior: smooth; }
 
+/* ── Reading-progress bar ─────────────────────────────────────── */
+html {
+  --scroll-progress: var(--amber);
+}
+html.genre-spiritual  { --scroll-progress: #5a9fe8; }
+html.genre-historical { --scroll-progress: #4ec07a; }
+html.genre-science    { --scroll-progress: #e86060; }
+html.genre-philosophy { --scroll-progress: #b86fd4; }
+
+.reading-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 4px;
+  background: var(--scroll-progress);
+  z-index: 200;
+  transition: background 0.4s ease;
+  border-radius: 0 2px 2px 0;
+}
+
 body {
   background: var(--green);
   color: var(--cream);
@@ -351,6 +372,20 @@ body {
   border-left: 4px solid var(--amber);
   background: rgba(44, 74, 62, 0.06);
   border-radius: 0 6px 6px 0;
+}
+
+.pull-quote-text {
+  margin: 0;
+}
+
+.pull-quote-citation {
+  display: block;
+  margin-top: 0.9rem;
+  font-family: 'Lora', serif;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: rgba(42, 31, 20, 0.75);
+  font-style: italic;
 }
 
 /* Article CTA area */

@@ -258,12 +258,6 @@ body {
   user-select: none;
 }
 
-/* Home page recent-review card cover image */
-.card-book-face {
-  position: relative;
-  overflow: hidden;
-}
-
 .card-book-img {
   position: absolute;
   inset: 0;
@@ -339,6 +333,7 @@ body {
 /* ── ABOUT ───────────────────────────────────────────────────── */
 .about {
   background: var(--cream);
+  color: var(--brown);
   padding-top: 1.5rem;
   padding-bottom: 0;
   overflow: hidden;
@@ -381,7 +376,7 @@ body {
   left: 65px;
   font-family: 'Playfair Display', serif;
   font-size: 0.7rem;
-  color: var(--amber);
+  color: var(--green);
   white-space: nowrap;
   z-index: 2;
   letter-spacing: 0.04em;
@@ -435,7 +430,7 @@ body {
 .reviews-header p {
   font-family: 'Lora', serif;
   font-size: 0.9rem;
-  color: var(--sage);
+  color: rgba(245, 236, 215, 0.75);
 }
 
 .reviews-grid {
@@ -495,6 +490,8 @@ body {
 .card-book-spine.genre-philosophy { background: var(--genre-philosophy); }
 
 .card-book-face {
+  position: relative;
+  overflow: hidden;
   width: 96px;
   background: var(--book-color, var(--amber));
   padding: 10px;
@@ -663,7 +660,7 @@ body {
 .newsletter-form button {
   padding: 0.65rem 1.4rem;
   background: var(--amber);
-  color: var(--cream);
+  color: var(--brown);
   border: none;
   border-radius: 6px;
   font-family: 'Playfair Display', serif;
@@ -689,7 +686,7 @@ body {
   text-align: center;
   font-family: 'Lora', serif;
   font-size: 0.82rem;
-  color: var(--sage);
+  color: rgba(245, 236, 215, 0.65);
 }
 
 /* ── RESPONSIVE ──────────────────────────────────────────────── */

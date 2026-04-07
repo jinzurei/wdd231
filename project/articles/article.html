@@ -4,13 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Review — The Librarian's Shelf</title>
-  <meta name="description" content="A book review from The Librarian's Shelf.">
-  <meta name="author" content="Jin LaFrano">
+  <meta name="description" content="An in-depth book review from The Librarian's Shelf.">
+  <meta name="author" content="Tanner L">
+  <meta name="theme-color" content="#1b3a2d">
+  <meta property="og:site_name" content="The Librarian's Shelf">
   <meta property="og:title" content="Review — The Librarian's Shelf">
-  <meta property="og:description" content="A book review from The Librarian's Shelf.">
+  <meta property="og:description" content="An in-depth book review from The Librarian's Shelf.">
   <meta property="og:image" content="https://jinzurei.github.io/wdd231/project/images/covers/librarianimage02.webp">
   <meta property="og:url" content="https://jinzurei.github.io/wdd231/project/articles/article.html">
   <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Review — The Librarian's Shelf">
+  <meta name="twitter:description" content="An in-depth book review from The Librarian's Shelf.">
+  <meta name="twitter:image" content="https://jinzurei.github.io/wdd231/project/images/covers/librarianimage02.webp">
   <link rel="icon" href="../images/logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,6 +24,8 @@
   <link rel="stylesheet" href="../styles/article.css">
 </head>
 <body>
+
+  <div class="reading-progress-bar" id="readingProgressBar" aria-hidden="true"></div>
 
   <!-- ── NAV ──────────────────────────────────────────────── -->
   <header class="site-header">
@@ -102,6 +110,7 @@
   </footer>
 
   <script type="module" src="../scripts/article.js"></script>
+  <script src="../scripts/book-widget.js"></script>
 
 </body>
 </html>

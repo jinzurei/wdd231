@@ -5,17 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Librarian's Shelf</title>
   <meta name="description" content="A personal book recommendation blog spanning spiritual wisdom, historical non-fiction, and science — curated by a librarian.">
-  <meta name="author" content="Jin LaFrano">
+  <meta name="author" content="Tanner L">
+  <meta name="theme-color" content="#1b3a2d">
+  <meta property="og:site_name" content="The Librarian's Shelf">
   <meta property="og:title" content="The Librarian's Shelf">
   <meta property="og:description" content="A personal book recommendation blog spanning spiritual wisdom, historical non-fiction, and science — curated by a librarian.">
   <meta property="og:image" content="https://jinzurei.github.io/wdd231/project/images/covers/librarianimage02.webp">
   <meta property="og:url" content="https://jinzurei.github.io/wdd231/project/index.html">
   <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Librarian's Shelf">
+  <meta name="twitter:description" content="A personal book recommendation blog spanning spiritual wisdom, historical non-fiction, and science — curated by a librarian.">
+  <meta name="twitter:image" content="https://jinzurei.github.io/wdd231/project/images/covers/librarianimage02.webp">
   <link rel="icon" href="images/logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/base.css">
   <link rel="stylesheet" href="styles/home.css">
+  <script type="module" src="scripts/carousel.js"></script>
 </head>
 <body>
 
@@ -43,7 +51,8 @@
   <main>
 
     <!-- ── HERO: 3D Book Carousel ────────────────────────── -->
-    <section class="hero" aria-label="Featured books">
+    <section class="hero" aria-labelledby="hero-heading">
+      <h1 id="hero-heading" class="sr-only">The Librarian's Shelf</h1>
 
       <div class="carousel-wrapper">
         <button class="carousel-btn" id="prevBtn" aria-label="Previous book">&#x2039;</button>
@@ -132,7 +141,7 @@
     <p>The Librarian's Shelf &mdash; Built with care for curious readers &mdash; WDD231</p>
   </footer>
 
-  <script type="module" src="scripts/carousel.js"></script>
+  <script src="scripts/book-widget.js"></script>
 
 </body>
 </html>

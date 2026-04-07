@@ -509,4 +509,17 @@ body {
     transform: translateX(0) translateY(0);
     opacity: 1;
   }
+
+  /* No slide-out card on mobile — tap the book to navigate */
+  .book-info-card { display: none; }
+
+  /* Tap feedback on the cover */
+  .book-item:active .book-cover { filter: brightness(0.75); }
+
+  /* Disable hover tilt (unreliable on touch) */
+  .book-item:hover .book-cover {
+    transform: none;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.4);
+  }
+  .book-item:hover .book-cover::after { opacity: 0; }
 }

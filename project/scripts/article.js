@@ -171,6 +171,101 @@ const ARTICLES = {
 
 };
 
+// ── Quote cards (1-3 per article) ────────────────────────────
+const ARTICLE_QUOTES = {
+  'gnostic-gospels': [
+    {
+      text: '"The kingdom of the Father is spread out upon the earth, and people do not see it."',
+      citation: 'Gospel of Thomas, Saying 113 (Nag Hammadi Codex II,2), trans. Thomas O. Lambdin.'
+    },
+    {
+      text: '"If they say to you, \"Where did you come from?\" say to them, \"We came from the light.\""',
+      citation: 'Gospel of Thomas, Saying 50 (Nag Hammadi Codex II,2), trans. Thomas O. Lambdin.'
+    }
+  ],
+  'consolation-philosophy': [
+    {
+      text: '"Nothing is miserable unless you think it so; and on the other hand, nothing brings happiness unless you are content with it."',
+      citation: 'Boethius, The Consolation of Philosophy, Book II, Prose 4.'
+    }
+  ],
+  'hypatia-alexandria': [
+    {
+      text: '"There was a woman at Alexandria named Hypatia... who made such attainments in literature and science as to far surpass all the philosophers of her own time."',
+      citation: 'Socrates Scholasticus, Ecclesiastical History, 7.15.'
+    }
+  ],
+  'liber-novus': [
+    {
+      text: '"My soul, where are you? Do you hear me? I speak, I call you - are you there?"',
+      citation: 'C. G. Jung, The Red Book (Liber Novus), Liber Primus.'
+    }
+  ],
+  'cloud-of-unknowing': [
+    {
+      text: '"For He may well be loved, but not thought. By love may He be gotten and holden; but by thought never."',
+      citation: 'The Cloud of Unknowing, Chapter 6.'
+    },
+    {
+      text: '"Lift up thine heart unto God with a meek stirring of love; and mean Himself, and none of His goods."',
+      citation: 'The Cloud of Unknowing, Chapter 3.'
+    }
+  ],
+  'master-emissary': [
+    {
+      text: '"The world according to the right hemisphere is a world of individual, changing, evolving, interconnected, implicit, incarnate beings..."',
+      citation: 'Iain McGilchrist, The Master and His Emissary, introductory chapters.'
+    }
+  ],
+  'stalking-wild-pendulum': [
+    {
+      text: '"What we call reality is only a cultural prejudice, and is by no means synonymous with an objective reality."',
+      citation: 'Itzhak Bentov, Stalking the Wild Pendulum, opening chapters.'
+    }
+  ],
+  'thus-spoke-zarathustra': [
+    {
+      text: '"Man is something that shall be overcome."',
+      citation: 'Friedrich Nietzsche, Thus Spoke Zarathustra, Prologue 3 (trans. Walter Kaufmann).'
+    },
+    {
+      text: '"One must still have chaos in oneself to be able to give birth to a dancing star."',
+      citation: 'Friedrich Nietzsche, Thus Spoke Zarathustra, Prologue 5 (trans. Walter Kaufmann).'
+    }
+  ],
+  'mans-search-for-meaning': [
+    {
+      text: '"Everything can be taken from a man but one thing: the last of the human freedoms - to choose one\'s attitude in any given set of circumstances, to choose one\'s own way."',
+      citation: 'Viktor E. Frankl, Man\'s Search for Meaning, Part One.'
+    },
+    {
+      text: '"He who has a why to live for can bear almost any how."',
+      citation: 'Friedrich Nietzsche, quoted in Viktor E. Frankl, Man\'s Search for Meaning.'
+    }
+  ],
+  'physics-mcfee': [
+    {
+      text: '"This book does not pretend that the strangeness goes away."',
+      citation: 'Cover copy referenced in the review of Isaac McFee\'s Physics.'
+    }
+  ],
+  'pistis-sophia': [
+    {
+      text: '"Now therefore, O Light of lights, in my affliction I sing praises to the Light."',
+      citation: 'Pistis Sophia, Book I (trans. G. R. S. Mead).'
+    }
+  ]
+};
+
+function getQuoteInsertIndexes(paragraphCount, quoteCount) {
+  const last = Math.max(0, paragraphCount - 1);
+  if (quoteCount <= 1) return [Math.min(3, last)];
+  if (quoteCount === 2) {
+    return [Math.min(2, last), Math.min(6, last)].filter((v, i, a) => a.indexOf(v) === i);
+  }
+  return [Math.min(2, last), Math.min(5, last), Math.min(8, last)].filter((v, i, a) => a.indexOf(v) === i);
+}
+
 // ── Init ───────────────────────────────────────────────────────
 async function init() {
   const id = new URLSearchParams(window.location.search).get('id');
@@ -194,6 +289,9 @@ async function init() {
 // ── Populate page ──────────────────────────────────────────────
 function populatePage(book) {
   document.title = `${book.title} — The Librarian's Shelf`;
+
+  // Apply genre to <html> for the reading-progress scrollbar
+  document.documentElement.classList.add(`genre-${book.genre}`);
 
   // Hero cover
   const cover = document.getElementById('heroCover');
@@ -235,11 +333,27 @@ function populatePage(book) {
   }
 
   const { paragraphs, pullQuote } = article;
+  const quotes = (ARTICLE_QUOTES[book.id] || []).slice(0, 3);
+  if (!quotes.length) {
+    quotes.push({
+      text: pullQuote,
+      citation: 'Review quote.'
+    });
+  }
+  const quoteIndexes = getQuoteInsertIndexes(paragraphs.length, quotes.length);
+  let quotePointer = 0;
+
   let html = '';
   paragraphs.forEach((p, i) => {
     html += `<p>${p}</p>\n`;
-    if (i === 3) {
-      html += `<blockquote class="pull-quote">${pullQuote}</blockquote>\n`;
+    if (quoteIndexes.includes(i) && quotePointer < quotes.length) {
+      const q = quotes[quotePointer++];
+      html += `
+        <blockquote class="pull-quote">
+          <p class="pull-quote-text">${q.text}</p>
+          <cite class="pull-quote-citation">${q.citation}</cite>
+        </blockquote>
+      `;
     }
   });
 
@@ -327,5 +441,17 @@ function setupMobileNav() {
   });
 }
 
+// ── Reading progress bar ───────────────────────────────────────
+function setupReadingProgress() {
+  const bar = document.getElementById('readingProgressBar');
+  if (!bar) return;
+  window.addEventListener('scroll', () => {
+    const scrolled  = window.scrollY;
+    const total     = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = total > 0 ? `${(scrolled / total) * 100}%` : '0%';
+  }, { passive: true });
+}
+
 // ── Start ──────────────────────────────────────────────────────
 init();
+setupReadingProgress();

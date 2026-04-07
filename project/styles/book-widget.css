@@ -1,0 +1,348 @@
+/* ═══════════════════════════════════════════════════════════════
+   Book Widget — floating animated red book with saved articles
+   ═══════════════════════════════════════════════════════════════ */
+
+.book-widget {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 9998;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+/* ── Trigger button ─────────────────────────────────────────── */
+.book-widget-btn {
+  width: 60px;
+  height: 64px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: wb-float 3.2s ease-in-out infinite;
+  filter: drop-shadow(0 5px 14px rgba(140, 20, 10, 0.45));
+  transition: width 0.32s cubic-bezier(.4,0,.2,1), filter 0.2s;
+}
+
+.book-widget-btn:hover {
+  filter: drop-shadow(0 7px 20px rgba(140, 20, 10, 0.65));
+}
+
+/* Expand button when open to fit the spread book */
+.book-widget-btn[aria-expanded="true"] {
+  width: 88px;
+  animation-play-state: paused;
+  filter: drop-shadow(0 6px 18px rgba(140, 20, 10, 0.5));
+}
+
+@keyframes wb-float {
+  0%, 100% { transform: translateY(0px)  rotate(-1.5deg); }
+  50%       { transform: translateY(-7px) rotate(1.5deg);  }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   CLOSED BOOK (3-D look) — visible by default, fades out on open
+   ══════════════════════════════════════════════════════════════ */
+
+.wb-closed {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.book-widget-btn[aria-expanded="true"] .wb-closed {
+  opacity: 0;
+  transform: scale(0.6);
+  pointer-events: none;
+}
+
+.wb-book {
+  width: 38px;
+  height: 50px;
+  position: relative;
+}
+
+.wb-spine {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 8px;
+  background: linear-gradient(to right, #6B0F08, #9B1B0E);
+  border-radius: 2px 0 0 2px;
+  box-shadow: inset -2px 0 4px rgba(0,0,0,0.25);
+}
+
+.wb-cover {
+  position: absolute;
+  left: 8px; right: 0; top: 0; bottom: 0;
+  background: linear-gradient(160deg, #D94030 0%, #C0392B 55%, #A02020 100%);
+  border-radius: 0 4px 4px 0;
+  overflow: hidden;
+  box-shadow: inset -4px 0 8px rgba(0,0,0,0.2);
+}
+
+.wb-cover::before,
+.wb-cover::after {
+  content: '';
+  position: absolute;
+  left: 6px; right: 6px;
+  background: rgba(255, 230, 220, 0.35);
+  border-radius: 1px;
+}
+.wb-cover::before { top: 9px;  height: 1.5px; }
+.wb-cover::after  { top: 14px; height: 1px; }
+
+.wb-page-edge {
+  position: absolute;
+  right: -5px; top: 3px; bottom: 3px;
+  width: 6px;
+  background: repeating-linear-gradient(
+    to right,
+    #FFF4EA 0px, #FFF4EA 1px,
+    #EDD8C8 1px, #EDD8C8 2px
+  );
+  border-radius: 0 2px 2px 0;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   OPEN BOOK — page-flip animation, hidden until opened.
+   Structure mirrors the reference:
+     paper 1  = right cover  (stays at 0°)
+     paper 2  = left  cover  (rotateZ 180° — extends left of spine)
+     paper 3+ = inner pages  (animate rotateY 0 → -180deg)
+   All papers share transform-origin: left center (the spine).
+   ══════════════════════════════════════════════════════════════ */
+
+.wb-open {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.22s 0.14s ease;
+  pointer-events: none;
+}
+
+.book-widget-btn[aria-expanded="true"] .wb-open {
+  opacity: 1;
+}
+
+/* Zero-size anchor at the spine — papers overflow both sides */
+.wb-open-inner {
+  position: relative;
+  width: 0;
+  height: 0;
+  perspective: 160px;
+  transform-style: preserve-3d;
+}
+
+.wb-paper {
+  width: 32px;
+  height: 44px;
+  position: absolute;
+  left: 0;
+  top: -22px;            /* center vertically: -(height / 2) */
+  transform-origin: 0% 50%;   /* left-center = spine */
+  background: #FFF4EA;
+  border: 2px solid #C0392B;
+  border-left: none;
+  border-radius: 0 2px 2px 0;
+}
+
+/* Right cover — red, no animation */
+.wb-paper:nth-child(1) {
+  background: linear-gradient(to right, #C0392B, #9B2020);
+  border-color: #8B1A10;
+  border-radius: 0 3px 3px 0;
+}
+
+/* Left cover — red, flipped left via rotateZ so it extends left of spine */
+.wb-paper:nth-child(2) {
+  background: linear-gradient(to left, #C0392B, #9B2020);
+  border-color: #8B1A10;
+  border-radius: 0 3px 3px 0;
+  transform: rotateZ(180deg);
+}
+
+/* Inner pages: staggered flip right → left (same keyframe as reference) */
+.wb-paper:nth-child(3) { animation: wb-pg-flip 3.2s ease-in-out 0.0s infinite; }
+.wb-paper:nth-child(4) { animation: wb-pg-flip 3.2s ease-in-out 0.4s infinite; }
+.wb-paper:nth-child(5) { animation: wb-pg-flip 3.2s ease-in-out 0.8s infinite; }
+.wb-paper:nth-child(6) { animation: wb-pg-flip 3.2s ease-in-out 1.2s infinite; }
+.wb-paper:nth-child(7) { animation: wb-pg-flip 3.2s ease-in-out 1.6s infinite; }
+.wb-paper:nth-child(8) { animation: wb-pg-flip 3.2s ease-in-out 2.0s infinite; }
+
+@keyframes wb-pg-flip {
+  from { transform: rotateY(0deg); }
+  30%  { transform: rotateY(-180deg); }
+  100% { transform: rotateY(-180deg); }
+}
+
+/* ── Badge ──────────────────────────────────────────────────── */
+.wb-badge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  min-width: 18px;
+  height: 18px;
+  background: #8B1208;
+  color: #fff;
+  font-size: 10px;
+  font-family: system-ui, sans-serif;
+  font-weight: 700;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  border: 2px solid #fff;
+  transition: transform 0.2s cubic-bezier(.34,1.56,.64,1), opacity 0.2s;
+}
+
+.wb-badge[data-empty="true"] {
+  transform: scale(0);
+  opacity: 0;
+}
+
+/* ── Sliding panel ──────────────────────────────────────────── */
+.book-widget-panel {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  right: 0;
+  width: 290px;
+  background: #FFF8F2;
+  border: 1.5px solid #C0392B;
+  border-radius: 10px;
+  box-shadow: 0 10px 36px rgba(90, 15, 5, 0.22), 0 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transform-origin: bottom right;
+  transform: scale(0.8) translateY(10px);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    transform 0.28s cubic-bezier(.34,1.45,.64,1),
+    opacity   0.2s ease;
+}
+
+.book-widget-panel.open {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+  pointer-events: all;
+}
+
+.wbp-header {
+  background: linear-gradient(135deg, #C0392B, #9B2020);
+  color: #fff;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.wbp-title {
+  margin: 0;
+  font-size: 13px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.wbp-close {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.8);
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 1;
+  padding: 0;
+  transition: color 0.15s, transform 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+}
+
+.wbp-close:hover { color: #fff; transform: rotate(90deg); }
+
+.wbp-body {
+  max-height: 300px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.wbp-body::-webkit-scrollbar { width: 4px; }
+.wbp-body::-webkit-scrollbar-track { background: transparent; }
+.wbp-body::-webkit-scrollbar-thumb { background: #C0392B50; border-radius: 2px; }
+
+.wbp-empty {
+  padding: 24px 16px;
+  text-align: center;
+  color: #9B7060;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.wbp-empty-icon { font-size: 26px; display: block; margin-bottom: 8px; }
+
+.wbp-article {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 1px solid #EDD5C5;
+  transition: background 0.15s;
+}
+
+.wbp-article:last-child { border-bottom: none; }
+.wbp-article:hover { background: #FDF0E6; }
+
+.wbp-article-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #C0392B;
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+.wbp-article-text { min-width: 0; }
+
+.wbp-article-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #2E1208;
+  margin: 0 0 2px;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wbp-article-author {
+  font-size: 11px;
+  color: #9B7060;
+  font-style: italic;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 400px) {
+  .book-widget { bottom: 18px; right: 18px; }
+  .book-widget-panel { width: min(290px, calc(100vw - 36px)); right: -2px; }
+}
