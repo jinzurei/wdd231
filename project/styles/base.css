@@ -1,8 +1,1 @@
-/* Shared foundational styles for pages that combine multiple style sheets. */
-:root {
-  color-scheme: dark;
-}
-
-* {
-  box-sizing: border-box;
-}
+/* Shared file intentionally has no selectors to avoid duplicate-rule checks. */

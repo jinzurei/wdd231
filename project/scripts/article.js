@@ -73,6 +73,12 @@ function populatePage(book) {
   cover.style.setProperty('--book-color', book.color);
   cover.classList.add(`genre-${book.genre}`);
   const img = document.getElementById('heroCoverImg');
+  const fallbackCover = '../images/covers/logo.webp';
+  img.onerror = () => {
+    img.onerror = null;
+    img.src = fallbackCover;
+    img.alt = `${book.title} cover placeholder`;
+  };
   img.src = `../images/books/${book.image}`;
   img.alt = `${book.title} cover`;
   img.draggable = false;
