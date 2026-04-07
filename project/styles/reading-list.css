@@ -121,7 +121,7 @@ body {
   font-size: 0.75rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--sage);
+  color: rgba(245, 236, 215, 0.7);
   margin-bottom: 0.75rem;
 }
 
@@ -248,7 +248,7 @@ body {
 .rl-author {
   font-family: 'Lora', serif;
   font-size: 0.78rem;
-  color: var(--sage);
+  color: rgba(245, 236, 215, 0.65);
   font-style: italic;
 }
 
@@ -335,7 +335,7 @@ body {
   text-align: center;
   font-family: 'Lora', serif;
   font-size: 0.82rem;
-  color: var(--sage);
+  color: rgba(245, 236, 215, 0.65);
 }
 
 /* ── RESPONSIVE ──────────────────────────────────────────────── */

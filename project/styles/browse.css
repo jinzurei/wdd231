@@ -122,7 +122,7 @@ body {
   font-size: 0.75rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--sage);
+  color: rgba(245, 236, 215, 0.7);
   margin-bottom: 0.6rem;
 }
 
@@ -179,13 +179,13 @@ body {
 .filter-btn.active {
   background: var(--amber);
   border-color: var(--amber);
-  color: var(--cream);
+  color: var(--brown);
 }
 
 .book-count {
   font-family: 'Lora', serif;
   font-size: 0.8rem;
-  color: var(--sage);
+  color: rgba(245, 236, 215, 0.65);
   letter-spacing: 0.05em;
   min-height: 1.2em;
 }
@@ -451,7 +451,7 @@ body {
   text-align: center;
   font-family: 'Lora', serif;
   font-size: 0.82rem;
-  color: var(--sage);
+  color: rgba(245, 236, 215, 0.65);
 }
 
 /* ── RESPONSIVE ──────────────────────────────────────────────── */

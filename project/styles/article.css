@@ -250,7 +250,7 @@ body {
   font-family: 'Lora', serif;
   font-size: 1.05rem;
   font-style: italic;
-  color: var(--sage);
+  color: rgba(245, 236, 215, 0.75);
   margin-bottom: 0.3rem;
 }
 
