@@ -40,6 +40,7 @@ function render() {
 
     item.innerHTML = `
       <div class="book-cover genre-${book.genre}" style="--book-color: ${book.color}">
+        <span class="book-spine-label" aria-hidden="true">${book.genre}</span>
         <img class="book-img"
              src="images/books/${book.image}"
              alt="${book.title} cover"

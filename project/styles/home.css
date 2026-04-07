@@ -204,12 +204,31 @@ body {
   border-right: 1px solid rgba(255,255,255,0.07);
   border-radius: 3px 0 0 3px;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .book.genre-spiritual  .book-spine { background: var(--genre-spiritual); }
 .book.genre-historical .book-spine { background: var(--genre-historical); }
 .book.genre-science    .book-spine { background: var(--genre-science); }
 .book.genre-philosophy .book-spine { background: var(--genre-philosophy); }
+
+/* Spine genre label */
+.spine-label {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-family: 'Lora', serif;
+  font-size: 0.52rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+  white-space: nowrap;
+  overflow: hidden;
+  user-select: none;
+  pointer-events: none;
+}
 
 /* Face = full image area */
 .book-face {
@@ -256,36 +275,6 @@ body {
   user-select: none;
 }
 
-/* Bookmark banner — genre + author overlay at the bottom */
-.book-banner {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 2;
-  background: linear-gradient(to bottom, transparent, rgba(15, 8, 3, 0.92));
-  padding: 40px 12px 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-}
-
-
-.banner-genre {
-  font-family: 'Lora', serif;
-  font-size: 0.58rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--amber);
-}
-
-.banner-author {
-  font-family: 'Playfair Display', serif;
-  font-size: 0.75rem;
-  font-style: italic;
-  color: rgba(255,255,255,0.9);
-  line-height: 1.3;
-}
 
 
 /* ── Info panel ──────────────────────────────────────────────── */
@@ -489,6 +478,15 @@ body {
   background: rgba(0,0,0,0.38);
   border-radius: 2px 0 0 2px;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.card-book-spine .spine-label {
+  font-size: 0.42rem;
+  letter-spacing: 0.12em;
 }
 
 .card-book-spine.genre-spiritual  { background: var(--genre-spiritual); }

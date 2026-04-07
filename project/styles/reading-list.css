@@ -191,6 +191,24 @@ body {
   background: rgba(0,0,0,0.4);
   border-radius: 0;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.rl-spine .spine-label {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-family: 'Lora', serif;
+  font-size: 0.38rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+  white-space: nowrap;
+  overflow: hidden;
+  user-select: none;
+  pointer-events: none;
 }
 
 .rl-face {

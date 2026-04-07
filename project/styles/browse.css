@@ -22,6 +22,7 @@ body {
   color: var(--cream);
   font-family: 'Lora', Georgia, serif;
   line-height: 1.7;
+  overflow-x: hidden;
 }
 
 .sr-only {
@@ -260,6 +261,30 @@ body {
   transition: opacity 0.3s ease;
   z-index: 6;
   pointer-events: none;
+}
+
+/* Genre label on spine */
+.book-spine-label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 100%;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-family: 'Lora', serif;
+  font-size: 0.48rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+  white-space: nowrap;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
 }
 
 .book-img {

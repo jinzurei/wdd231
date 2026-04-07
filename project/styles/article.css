@@ -144,6 +144,24 @@ body {
   flex-shrink: 0;
   background: rgba(0, 0, 0, 0.4);
   border-right: 1px solid rgba(255, 255, 255, 0.07);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.spine-label {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-family: 'Lora', serif;
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+  white-space: nowrap;
+  overflow: hidden;
+  user-select: none;
+  pointer-events: none;
 }
 
 .hero-book-face {

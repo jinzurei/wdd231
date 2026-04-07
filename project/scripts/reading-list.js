@@ -23,7 +23,7 @@ function buildList(books) {
 
     card.innerHTML = `
       <div class="rl-book">
-        <div class="rl-spine"></div>
+        <div class="rl-spine"><span class="spine-label" aria-hidden="true">${book.genre}</span></div>
         <div class="rl-face">
           <img class="rl-cover-img"
                src="images/books/${book.image}"

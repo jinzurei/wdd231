@@ -50,7 +50,7 @@ function buildCarousel() {
 
     el.innerHTML = `
       <div class="book-cover">
-        <div class="book-spine"></div>
+        <div class="book-spine"><span class="spine-label" aria-hidden="true">${book.genre}</span></div>
         <div class="book-face">
           <div class="book-placeholder" aria-hidden="true"></div>
           <img class="book-img"
@@ -59,10 +59,6 @@ function buildCarousel() {
                draggable="false"
                style="${book.imagePosition ? `object-position: ${book.imagePosition}` : ''}"
                onerror="this.style.display='none'">
-          <div class="book-banner">
-            <span class="banner-genre">${book.genre}</span>
-            <span class="banner-author">${book.author}</span>
-          </div>
         </div>
       </div>
     `;
@@ -222,7 +218,7 @@ function buildRecentReviews() {
     card.innerHTML = `
       <div class="card-cover-area">
         <div class="card-book-visual" style="--book-color: ${book.color}">
-          <div class="card-book-spine genre-${book.genre}"></div>
+          <div class="card-book-spine genre-${book.genre}"><span class="spine-label" aria-hidden="true">${book.genre}</span></div>
           <div class="card-book-face">
             <img class="card-book-img"
                  src="images/books/${book.image}"
