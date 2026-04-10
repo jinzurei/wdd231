@@ -280,7 +280,7 @@ function setupNewsletter() {
     e.preventDefault();
     const email = form.querySelector('input[type="email"]').value.trim();
     if (email) {
-      form.innerHTML = '<p class="newsletter-thanks">Thank you — your first recommendation arrives soon.</p>';
+      window.location.href = `newsletter-thanks.html?email=${encodeURIComponent(email)}`;
     }
   });
 }

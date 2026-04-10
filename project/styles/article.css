@@ -328,7 +328,7 @@ body {
 .back-link {
   font-family: 'Lora', serif;
   font-size: 0.82rem;
-  color: var(--sage);
+  color: #4A6B5C;
   text-decoration: none;
   letter-spacing: 0.05em;
   transition: color 0.2s;
@@ -427,7 +427,7 @@ body {
   text-align: center;
   font-family: 'Lora', serif;
   font-size: 0.82rem;
-  color: var(--sage);
+  color: #A8C4B8;
 }
 
 /* ── RESPONSIVE ──────────────────────────────────────────────── */

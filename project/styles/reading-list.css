@@ -168,7 +168,8 @@ body {
   /* Attribution: card expand interaction inspired by codepen.io/Snowing/pen/JZRxOK */
 }
 
-.rl-card:hover {
+.rl-card:hover,
+.rl-card.expanded {
   box-shadow: 0 10px 36px rgba(0,0,0,0.55);
   background: #243830;
 }
@@ -181,7 +182,8 @@ body {
   transition: height 0.45s ease, transform 0.5s ease 0.05s;
 }
 
-.rl-card:hover .rl-book {
+.rl-card:hover .rl-book,
+.rl-card.expanded .rl-book {
   height: 170px;
   transform: perspective(600px) rotateY(45deg);
 }
@@ -260,7 +262,8 @@ body {
   transition: max-height 0.45s ease, opacity 0.3s ease 0.1s;
 }
 
-.rl-card:hover .rl-expand {
+.rl-card:hover .rl-expand,
+.rl-card.expanded .rl-expand {
   max-height: 250px;
   opacity: 1;
 }
@@ -365,6 +368,8 @@ body {
   }
 
   .rl-section { padding: 2rem 1rem 4rem; }
+
+  .rl-card { cursor: pointer; }
 
   .rl-side {
     min-width: 110px;

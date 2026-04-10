@@ -55,6 +55,10 @@ function buildList(books) {
       </div>
     `;
 
+    card.addEventListener('click', () => {
+      card.classList.toggle('expanded');
+    });
+
     list.appendChild(card);
   });
 }
