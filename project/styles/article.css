@@ -430,6 +430,8 @@ body {
   color: #A8C4B8;
 }
 
+.site-footer a { color: var(--amber); }
+
 /* ── RESPONSIVE ──────────────────────────────────────────────── */
 @media (max-width: 760px) {
   .hero-inner {
