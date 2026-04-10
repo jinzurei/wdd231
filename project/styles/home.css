@@ -284,6 +284,13 @@ body {
   overflow: hidden;
 }
 
+.fetch-error {
+  color: var(--amber);
+  font-size: 1rem;
+  text-align: center;
+  padding: 1.5rem;
+}
+
 .info-genre {
   font-family: 'Lora', serif;
   font-size: 0.72rem;

@@ -205,6 +205,14 @@ body {
   justify-items: center;
 }
 
+.fetch-error {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 2rem;
+  color: var(--amber);
+  font-size: 1rem;
+}
+
 /* ── BOOK ITEM ───────────────────────────────────────────────── */
 .book-item {
   position: relative;

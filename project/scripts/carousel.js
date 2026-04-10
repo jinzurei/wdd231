@@ -35,6 +35,13 @@ async function init() {
     startAutoRotate();
   } catch (err) {
     console.error('Could not load books.json:', err);
+    if (infoEl) {
+      infoEl.innerHTML = '<p class="fetch-error">Unable to reach book data at this time. Please try again later.</p>';
+    }
+    const reviewsGrid = document.getElementById('reviewsGrid');
+    if (reviewsGrid) {
+      reviewsGrid.innerHTML = '<p class="fetch-error">Unable to reach book data at this time. Please try again later.</p>';
+    }
   }
 }
 

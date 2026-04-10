@@ -7,6 +7,10 @@ async function init() {
     setupMobileNav();
   } catch (err) {
     console.error('Could not load books.json:', err);
+    const list = document.getElementById('rlList');
+    if (list) {
+      list.innerHTML = '<p class="fetch-error">Unable to reach book data at this time. Please try again later.</p>';
+    }
   }
 }
 

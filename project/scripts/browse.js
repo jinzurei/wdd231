@@ -18,6 +18,10 @@ async function init() {
     window.addEventListener('resize', applySlideDirections);
   } catch (err) {
     console.error('Could not load books.json:', err);
+    const grid = document.getElementById('browseGrid');
+    if (grid) {
+      grid.innerHTML = '<p class="fetch-error">Failed to load books. Check your connection and try again.</p>';
+    }
   }
 }
 
